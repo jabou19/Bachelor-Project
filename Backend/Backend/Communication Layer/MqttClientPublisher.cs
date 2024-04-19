@@ -45,7 +45,7 @@ public class MqttClientPublisher
         // Serialize data for WSense
         var jsonData_WSense = JsonSerializer.Serialize((WeatherStation_WSense)WSense);
         var message_WSense = new MqttApplicationMessageBuilder()
-            .WithTopic("WeatherStation_WSense/data")
+            .WithTopic("weather/data")
             .WithPayload(jsonData_WSense)
             .WithExactlyOnceQoS()
             .WithRetainFlag()
