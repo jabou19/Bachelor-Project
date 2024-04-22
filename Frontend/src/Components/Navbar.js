@@ -25,7 +25,7 @@ const Navbar = () => {
     const activeLinkStyle = {
         textDecoration: 'none',
         color: 'white', // Set the color for the active link
-        backgroundColor: '#8DB580',
+        backgroundColor: '#5e6ead',
         borderRadius: '50%', // Create a circular background
         padding: '8px 16px', // Add padding for better appearance
     };
