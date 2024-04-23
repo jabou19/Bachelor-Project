@@ -8,8 +8,8 @@ public class PersonCounters:IDevices
     private Random random = new Random();
     public void GenerateRandomData()
     {
-        personCount=random.Next(0, 500);
-        BatteryLevel = Math.Round(random.Next(3, (int)7.4) + random.NextDouble(), 1);
+        personCount=random.Next(0, 150);
+        BatteryLevel = Math.Round(random.Next(3, (int)7.4) + random.NextDouble(), 2);
         TimeStamp = DateTime.Now;
     }
 }

@@ -1,7 +1,7 @@
 
 import './App.css';
 import Home from "./Components/Home";
-import WeatherStation from "./Components/weatherStation";
+import WeatherStation from "./Components/Devices/WeatherStation";
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from "./Components/Navbar";
