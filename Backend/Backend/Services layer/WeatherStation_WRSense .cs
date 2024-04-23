@@ -20,11 +20,11 @@ public class WeatherStation_WRSense :IDevices
     public void GenerateRandomData()
     {
         // Using Math.Round to ensure the values have no more than 2 decimal places
-        AirTemperature = Math.Round(random.Next(-70, 70) + random.NextDouble(), 1);
-        RoadTemperature = Math.Round(random.Next(-70, 70) + random.NextDouble(), 1);
-        AirHumidity = Math.Round(random.Next(0, 100) + random.NextDouble(), 1);
-        precipitation = Math.Round(random.Next(0,20) + random.NextDouble(),1);
-        BatteryLevel = Math.Round(random.Next(3, (int)7.4) + random.NextDouble(), 1);
+        AirTemperature = Math.Round(random.Next(-70, 70) + random.NextDouble(), 2);
+        RoadTemperature = Math.Round(random.Next(-70, 70) + random.NextDouble(), 2);
+        AirHumidity = Math.Round(random.Next(0, 100) + random.NextDouble(), 2);
+        precipitation = Math.Round(random.Next(0,20) + random.NextDouble(),2);
+        BatteryLevel = Math.Round(random.Next(3, (int)7.4) + random.NextDouble(), 2);
         TimeStamp = DateTime.Now;
     }
 }
