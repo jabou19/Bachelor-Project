@@ -16,6 +16,7 @@ public class MqttClientPublisher
     private System.Timers.Timer _timer;
     private IDevices WSense= new WeatherStation_WSense();
     private IDevices WRSense = new WeatherStation_WRSense();
+    private IDevices USense = new WaterLevel_USense();
     private IDevices personCount = new PersonCounters();
     
     public async Task ConnectAndPublishAsync()
@@ -60,11 +61,20 @@ public class MqttClientPublisher
             .WithExactlyOnceQoS()
             .WithRetainFlag()
             .Build();
+        // Serialize data for WaterLevel_USense
+        ((WaterLevel_USense)USense).GenerateRandomData();
+        var jsonData_USense = JsonSerializer.Serialize((WaterLevel_USense)USense);
+        var message_USense = new MqttApplicationMessageBuilder()
+            .WithTopic("WaterLevel_USense/data")
+            .WithPayload(jsonData_USense)
+            .WithExactlyOnceQoS()
+            .WithRetainFlag()
+            .Build();
         //Serialize data  Person Counter
         ((PersonCounters)personCount).GenerateRandomData();
         var jasonData_PersonCount = JsonSerializer.Serialize((PersonCounters)personCount);
         var message_PersonCount = new MqttApplicationMessageBuilder()
-            .WithTopic("Person_Counter/data")
+            .WithTopic("PersonCounter/data")
             .WithPayload(jasonData_PersonCount)
             .WithExactlyOnceQoS()
             .WithRetainFlag()
@@ -73,8 +83,9 @@ public class MqttClientPublisher
         {
             //Publisher
             Console.WriteLine("Publisher: Connected to MQTT broker.");
-            await _client.PublishAsync(message_WSense, CancellationToken.None);
-            await _client.PublishAsync(message_WRSense, CancellationToken.None);
+           await _client.PublishAsync(message_WSense, CancellationToken.None);
+           await _client.PublishAsync(message_WRSense, CancellationToken.None);
+           await _client.PublishAsync(message_USense, CancellationToken.None);
             await _client.PublishAsync(message_PersonCount, CancellationToken.None);
         }
         else
