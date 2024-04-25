@@ -1,8 +1,8 @@
-﻿import React, { useState, useEffect } from 'react';
-
+﻿
+import React, { useState, useEffect } from 'react';
 import mqtt from 'mqtt';
 
-const MQTT_BROKER_URL = 'wss:9560e98a5b614e8cb8e275293952641a.s1.eu.hivemq.cloud:8884/mqtt';  // WebSocket URL for the MQTT broker
+const MQTT_BROKER_URL = 'wss:9560e98a5b614e8cb8e275293952641a.s1.eu.hivemq.cloud:8884/mqtt';
 
 function WeatherStation() {
     const [weatherData, setWeatherData] = useState([]);
@@ -14,13 +14,12 @@ function WeatherStation() {
             username: "Jakub",
             password: "QWaszx12",
             connectTimeout: 5000,
-            reconnectPeriod: 1000, // Automatically try to reconnect every 1000ms
-            clean: true // Depending on your requirement, you might want to set this to false
+            reconnectPeriod: 1000,
+            clean: true
         };
         const client = mqtt.connect(MQTT_BROKER_URL, options);
 
         client.on('connect', () => {
-
             console.log("Connected to MQTT Broker via WebSockets!");
             setConnectionStatus('Connected.');
             client.subscribe('weather/data');
@@ -31,6 +30,7 @@ function WeatherStation() {
             console.log(data.Timestamp); // Check what the timestamp looks like
             setWeatherData(currentData => [...currentData, data]);
         });
+
         client.on('error', (error) => {
             console.error('Connection error:', error);
             setConnectionStatus('Connection failed.');
@@ -53,7 +53,6 @@ function WeatherStation() {
         };
     }, []);
 
-    // Define a function to get the appropriate style based on the connection status
     const getConnectionStyle = (status) => {
         switch (status) {
             case 'Connected.':
@@ -70,31 +69,31 @@ function WeatherStation() {
     return (
         <div className="App">
             <h1>Weather Station Data</h1>
-            <div style={{...styles.statusLine}}>Client Connection Status:
+            <div style={styles.statusLine}>Client Connection Status:
                 <span style={{ ...getConnectionStyle(connectionStatus), marginLeft: '20px' }}>
-                {connectionStatus}
-              </span>
-
+                    {connectionStatus}
+                </span>
             </div>
-            <table>
+            <table style={styles.table}>
                 <thead>
                 <tr>
-                    <th>Air Temperature (°C)</th>
                     <th>Road Temperature (°C)</th>
+                    <th>Air Temperature (°C)</th>
                     <th>Air Humidity (%)</th>
                     <th>Battery Level (V)</th>
-                    <th>Timestamp</th>
+                    <th>Time</th>
+                    <th>CreatedAt</th>
                 </tr>
                 </thead>
                 <tbody>
                 {weatherData.map((data, index) => (
-
                     <tr key={index}>
-                        <td>{data.AirTemperature.toFixed(2)}</td>
                         <td>{data.RoadTemperature.toFixed(2)}</td>
+                        <td>{data.AirTemperature.toFixed(2)}</td>
                         <td>{data.AirHumidity.toFixed(2)}</td>
                         <td>{data.BatteryLevel.toFixed(2)}</td>
-                        <td>{new Date(data.Timestamp).toLocaleString()}</td>
+                        <td>{new Date(data.Time).toLocaleString()}</td>
+                        <td>{new Date(data.CreatedAt).toLocaleString()}</td>
                     </tr>
                 ))}
                 </tbody>
@@ -104,7 +103,7 @@ function WeatherStation() {
 }
 
 export default WeatherStation;
-// Define styles as objects directly
+
 const styles = {
     statusConnected: {
         color: 'green',
@@ -112,9 +111,22 @@ const styles = {
     statusDisconnected: {
         color: 'red',
     },
-    statusLine: { // Adding a new style for the entire line
+    statusLine: {
         fontWeight: 'bold'
     },
-    // Add other styles as needed
-
+    table: { // Define table styles including border
+        width: '100%',
+        borderCollapse: 'collapse',
+    },
+    th: { // Table header styles
+        border: '1px solid black',
+        padding: '8px',
+        textAlign: 'left',
+        backgroundColor: '#f2f2f2'
+    },
+    td: { // Table data styles
+        border: '1px solid black',
+        padding: '8px',
+        textAlign: 'left'
+    }
 };
