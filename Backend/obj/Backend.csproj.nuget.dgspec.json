@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\WebApplication2\\Backend\\Backend.csproj": {}
+    "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\WebApplication2\\Backend\\Backend.csproj": {
+    "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\WebApplication2\\Backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\WebApplication2\\Backend\\Backend.csproj",
+        "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\Backend\\Backend.csproj",
         "packagesPath": "C:\\Users\\jakub\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\WebApplication2\\Backend\\obj\\",
+        "outputPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jakub\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -45,6 +45,10 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.3, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
