@@ -27,8 +27,8 @@ public class MqttClientSubscriber
         {
             Console.WriteLine("Subscribe: Connected to MQTT broker.");
             // Subscribe to topic
-            await _client.SubscribeAsync(new MqttTopicFilterBuilder().WithTopic("weather/data").Build());
-            Console.WriteLine("Subscribed to 'weather/data'");
+            await _client.SubscribeAsync(new MqttTopicFilterBuilder().WithTopic("station/data").Build());
+            Console.WriteLine("Subscribed to 'station/data'");
         });
 
         _client.UseDisconnectedHandler(e =>

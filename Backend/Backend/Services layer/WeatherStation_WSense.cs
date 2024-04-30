@@ -59,9 +59,9 @@ using System.IO;
 namespace Backend.Backend.Services_layer;
 
 public class WeatherStation_WSense : IDevices
-{
-    public double AirTemperature { get; set; }
+{ 
     public double RoadTemperature { get; set; }
+    public double AirTemperature { get; set; }
     public double AirHumidity { get; set; }
     public double? BatteryLevel { get; set; }
     public DateTime? Time { get; set; }
@@ -72,10 +72,10 @@ public class WeatherStation_WSense : IDevices
 
     public WeatherStation_WSense()
     {
-        GenerateRandomData();
+        ReadingData();
     }
 
-    public void GenerateRandomData()
+    public void ReadingData()
     {
         var fullFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, FilePath);
         if (!File.Exists(fullFilePath))
@@ -96,9 +96,8 @@ public class WeatherStation_WSense : IDevices
         {
             JObject item = jsonArray[currentIndex] as JObject;
             if (IsObjectValid(item))
-            {
+            {   RoadTemperature = item["roadTemperature"].Value<double>();
                 AirTemperature = item["airTemperature"].Value<double>();
-                RoadTemperature = item["roadTemperature"].Value<double>();
                 AirHumidity = item["airHumidity"].Value<double>();
                 BatteryLevel = item["batteryLevel"].Value<double>();
                 Time = item["time"].Value<DateTime>();

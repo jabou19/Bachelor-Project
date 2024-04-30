@@ -1,19 +1,20 @@
 
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import {useTranslation} from "react-i18next";
+import Connection from "./Connection/Connection";
 
 const Navbar = () => {
     const location = useLocation();
-    const { t } = useTranslation();
 
     const navbarStyle = {
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'left',
         padding: '10px 0',
         listStyle: 'none',
         margin: 10,
+        marginLeft:70,
         gap: '30px',
     };
 
@@ -35,12 +36,18 @@ const Navbar = () => {
     return (
         <nav style={navbarStyle}>
             <NavLink to="/" style={isLinkActive('/') ? activeLinkStyle : linkStyle}>
-                {t('Home')}
+                {'Home'}
             </NavLink>
             <NavLink to="/weatherstation" style={isLinkActive('/weatherstation') ? activeLinkStyle : linkStyle}>
-                {t('Weather Station')}
+                {'Weather Station'}
             </NavLink>
-
+            <NavLink to="/waterlevel" style={isLinkActive('/waterlevel') ? activeLinkStyle : linkStyle}>
+                {'Water Level'}
+            </NavLink>
+            <NavLink to="/personcounter" style={isLinkActive('/personcounter') ? activeLinkStyle : linkStyle}>
+                {'Person Counter'}
+            </NavLink>
+            <Connection> </Connection>
         </nav>
     );
 };

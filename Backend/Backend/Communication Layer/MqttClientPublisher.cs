@@ -17,7 +17,7 @@ public class MqttClientPublisher
     private IDevices WSense= new WeatherStation_WSense();
     private IDevices WRSense = new WeatherStation_WRSense();
     private IDevices USense = new WaterLevel_USense();
-    private IDevices personCount = new PersonCounters();
+    private IDevices personCount = new PersonCounter();
     
     public async Task ConnectAndPublishAsync()
     {
@@ -42,7 +42,7 @@ public class MqttClientPublisher
     private async Task PublishDataAsync()
     {
         // Generate data 
-        ((WeatherStation_WSense)WSense).GenerateRandomData();
+        ((WeatherStation_WSense)WSense).ReadingData();
         // Serialize data for WSense
         var jsonData_WSense = JsonSerializer.Serialize((WeatherStation_WSense)WSense);
         var message_WSense = new MqttApplicationMessageBuilder()
@@ -53,16 +53,16 @@ public class MqttClientPublisher
             .Build();
 
         // Serialize data for WRSense
-        ((WeatherStation_WRSense)WRSense).GenerateRandomData();
+        ((WeatherStation_WRSense)WRSense).ReadingData();
         var jsonData_WRSense = JsonSerializer.Serialize((WeatherStation_WRSense)WRSense);
         var message_WRSense = new MqttApplicationMessageBuilder()
-            .WithTopic("WeatherStation_WRSense/data")
+            .WithTopic("station/data")
             .WithPayload(jsonData_WRSense)
             .WithExactlyOnceQoS()
             .WithRetainFlag()
             .Build();
         // Serialize data for WaterLevel_USense
-        ((WaterLevel_USense)USense).GenerateRandomData();
+        ((WaterLevel_USense)USense).ReadingData();
         var jsonData_USense = JsonSerializer.Serialize((WaterLevel_USense)USense);
         var message_USense = new MqttApplicationMessageBuilder()
             .WithTopic("WaterLevel_USense/data")
@@ -71,8 +71,8 @@ public class MqttClientPublisher
             .WithRetainFlag()
             .Build();
         //Serialize data  Person Counter
-        ((PersonCounters)personCount).GenerateRandomData();
-        var jasonData_PersonCount = JsonSerializer.Serialize((PersonCounters)personCount);
+        ((PersonCounter)personCount).ReadingData();
+        var jasonData_PersonCount = JsonSerializer.Serialize((PersonCounter)personCount);
         var message_PersonCount = new MqttApplicationMessageBuilder()
             .WithTopic("PersonCounter/data")
             .WithPayload(jasonData_PersonCount)

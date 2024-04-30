@@ -3,12 +3,12 @@
 namespace Backend.Backend.Services_layer;
 
 public class WeatherStation_WRSense:IDevices 
-{
-    public double AirTemperature { get; set; }
+{ 
     public double RoadTemperature { get; set; }
+    public double AirTemperature { get; set; }
     public double AirHumidity { get; set; }
-    public double? BatteryLevel { get;  set; }
     public double Precipitation { get; set; }
+    public double? BatteryLevel { get;  set; }
     public DateTime? Time { get;  set; }
     public DateTime? CreatedAt { get; set; }
     private readonly string FilePath = "Files/HistoricalData_JSONFiles/WeatherStations/cleaned_wrsense-timestamp.json";
@@ -17,10 +17,10 @@ public class WeatherStation_WRSense:IDevices
     public WeatherStation_WRSense()
     {
         
-        GenerateRandomData();
+        ReadingData();
     }
   
-    public void GenerateRandomData()
+    public void ReadingData()
     {
         var fullFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, FilePath);
         if (!File.Exists(fullFilePath))

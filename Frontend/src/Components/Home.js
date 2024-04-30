@@ -1,11 +1,10 @@
 import React from 'react';
 import {useTranslation} from "react-i18next";
 
-const Home = () => {
-    const { t } = useTranslation();
+const Home = () => {;
     return (
         <div style={centerStyle}>
-            <h2>{t('welcome')}</h2>
+            <h2>{'welcome'}</h2>
             {/* Add more content here */}
         </div>
     );

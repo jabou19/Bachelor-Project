@@ -2,7 +2,7 @@
 
 public interface IDevices
 {
-    public void GenerateRandomData();
+    public void ReadingData();
     double? BatteryLevel { get; }
     DateTime? Time { get; }
     DateTime? CreatedAt { get; }
