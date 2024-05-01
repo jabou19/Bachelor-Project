@@ -99,6 +99,9 @@ public class MqttClientPublisher
     {
         _timer?.Stop();
         _timer?.Dispose();
-        await _client.DisconnectAsync();
+        if (_client.IsConnected)
+        {
+            await _client.DisconnectAsync();
+        }
     }
 }

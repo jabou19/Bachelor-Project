@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import mqtt from 'mqtt';
 import {styles} from "../Styles/Stylesheet";
+import WeatherPrediction from "../Prediction/WeatherPrediction";
 const MQTT_BROKER_URL = 'wss:9560e98a5b614e8cb8e275293952641a.s1.eu.hivemq.cloud:8884/mqtt';
 
 function WeatherStation() {
@@ -69,11 +70,12 @@ function WeatherStation() {
     return (
         <div className="App">
             <h1>Weather Station (WRSense)</h1>
-            {/*<div style={styles.statusLine}>Client Connection Status:
+            <div style={styles.statusLine}>Client Connection Status:
                 <span style={{ ...getConnectionStyle(connectionStatus), marginLeft: '20px' }}>
                     {connectionStatus}
                 </span>
-            </div>*/}
+            </div>
+            <WeatherPrediction></WeatherPrediction>
             <table style={styles.table}>
                 <thead style={styles.th}>
                 <tr>

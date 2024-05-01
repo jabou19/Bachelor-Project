@@ -47,7 +47,10 @@ const Navbar = () => {
             <NavLink to="/personcounter" style={isLinkActive('/personcounter') ? activeLinkStyle : linkStyle}>
                 {'Person Counter'}
             </NavLink>
-            <Connection> </Connection>
+            {/*<NavLink to="/weatherstationprediction" style={isLinkActive('/weatherstationprediction') ? activeLinkStyle : linkStyle}>
+                {'Weather Prediction'}
+            </NavLink>*/}
+       {/*     <Connection> </Connection>*/}
         </nav>
     );
 };

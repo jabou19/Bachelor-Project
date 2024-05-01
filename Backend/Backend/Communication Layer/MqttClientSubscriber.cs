@@ -58,6 +58,9 @@ public class MqttClientSubscriber
 
     public async Task StopAsync()
     {
-        await _client.DisconnectAsync();
+        if (_client.IsConnected)
+        {
+            await _client.DisconnectAsync();
+        }
     }
 }
