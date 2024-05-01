@@ -1,6 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend", "Backend\Backend.csproj", "{8196DC75-ECCE-473B-BBB9-6CF4E9702EF0}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Backend", "Backend\Backend.csproj", "{8196DC75-ECCE-473B-BBB9-6CF4E9702EF0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MLModel_WebApi1", "MLModel_WebApi1\MLModel_WebApi1.csproj", "{7B918961-A07D-45A6-9962-D8E5EBFB8C3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +17,15 @@ Global
 		{8196DC75-ECCE-473B-BBB9-6CF4E9702EF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8196DC75-ECCE-473B-BBB9-6CF4E9702EF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8196DC75-ECCE-473B-BBB9-6CF4E9702EF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B918961-A07D-45A6-9962-D8E5EBFB8C3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B918961-A07D-45A6-9962-D8E5EBFB8C3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B918961-A07D-45A6-9962-D8E5EBFB8C3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B918961-A07D-45A6-9962-D8E5EBFB8C3B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32738665-003F-49E5-B6B2-0A431E3764A0}
 	EndGlobalSection
 EndGlobal
