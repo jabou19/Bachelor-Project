@@ -8,7 +8,7 @@ export const styles = {
     statusLine: {
         fontWeight: 'bold',
         marginTop:-8,
-        marginLeft: 300,
+        marginLeft: 900,
     },
     table: { // Define table styles including border
         width: '95%',
@@ -27,5 +27,17 @@ export const styles = {
         padding: '8px',
         textAlign: 'left',
         backgroundColor: '#ffffff'
-    }
+    },
+    label:{
+        display: 'block',
+        marginBottom: '5px',
+    },
+    input:{
+        display: 'block',
+        marginBottom: '5px',
+    },
+    button:{
+        marginTop: '15px',
+        marginLeft:40
+    },
 };

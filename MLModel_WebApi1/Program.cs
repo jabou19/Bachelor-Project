@@ -28,5 +28,6 @@ app.MapPost("/predict",
     async (PredictionEnginePool<MLModel.ModelInput, MLModel.ModelOutput> predictionEnginePool, MLModel.ModelInput input) =>
         await Task.FromResult(predictionEnginePool.Predict(input)));
 
+
 // Run app
 app.Run();

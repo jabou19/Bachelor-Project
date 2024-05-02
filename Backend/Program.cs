@@ -2,6 +2,7 @@
 using Microsoft.Extensions.ML;
 using Microsoft.OpenApi.Models;
 using Backend.Backend.Communication_Layer;
+using Microsoft.ML;
 using MLModel_WebApi1;
 
 
@@ -47,7 +48,7 @@ var subscriber = app.Services.GetRequiredService<MqttClientSubscriber>();
 app.Lifetime.ApplicationStarted.Register(async () =>
 {
     await publisher.ConnectAndPublishAsync();
-    await subscriber.ConnectAndSubscribeAsync();
+    //await subscriber.ConnectAndSubscribeAsync();
 });
 
 app.Lifetime.ApplicationStopping.Register(async () =>
@@ -65,17 +66,28 @@ app.MapPost("/predict", async (PredictionEnginePool<MLModel.ModelInput, MLModel.
     })
     .WithName("Predict")
     .WithOpenApi();
-/*app.MapPost("/predict", (MLModel.ModelInput input) =>
+// Assuming the project root is the current directory if running directly from project
+// For deployments, ensure this points to the root directory of the deployed files
+builder.Host.UseContentRoot(Directory.GetCurrentDirectory());
+app.MapGet("/evaluate-model", async () =>
     {
-        // Use the static Predict method from the MLModel class
-        var result = MLModel.Predict(input);
-        Console.WriteLine($"Predicted Road Temperature: {result.Score}");
+        var mlContext = new MLContext();
 
-        // Task.FromResult is used to wrap the result in a Task since the lambda is expected to be async
-        return Results.Ok(result);
+        // Load the model and training data
+        // Relative paths from the repository root
+        var modelPath = "MLModel.mlnet";
+        var trainingDataPath = "Files/CVS/cleaned_wrsense.csv";
+        IDataView trainingData = MLModel.LoadIDataViewFromFile(mlContext, trainingDataPath, ',', true);
+        ITransformer model = mlContext.Model.Load(modelPath, out var schema);
+        // Calculate R-squared on the training data
+        double rSquared = MLModel.CalculateRSquaredOnTrainingData(mlContext, model, trainingData);
+        Console.WriteLine($"R-squared on training data: {rSquared}");
+        // Return the R-squared value in the response
+        return Results.Ok(new { RSquared = rSquared });
+        
     })
-    .WithName("Predict")
-    .WithOpenApi();*/
+    .WithName("EvaluateModel")
+    .WithOpenApi();
 
 // Use CORS policy
 app.UseCors("AllowMyLocalhost");

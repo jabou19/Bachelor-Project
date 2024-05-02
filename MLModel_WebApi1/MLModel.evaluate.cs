@@ -53,6 +53,27 @@ namespace MLModel_WebApi1
 
             return featurePFI;
         }
+        
+        /// <summary>
+        /// Evaluates the model using training data and calculates R-squared.
+        /// </summary>
+        /// <param name="mlContext">ML.NET machine learning context.</param>
+        /// <param name="model">Trained model to evaluate.</param>
+        /// <param name="trainingData">Training data used to evaluate the model.</param>
+        /// <returns>R-squared metric indicating the performance of the model on the training data.</returns>
+        public static double CalculateRSquaredOnTrainingData(MLContext mlContext, ITransformer model, IDataView trainingData)
+        {
+            // Use the model to make predictions on the training data
+            IDataView predictions = model.Transform(trainingData);
+
+            // Evaluate the model and compute R-squared
+            var metrics = mlContext.Regression.Evaluate(predictions, labelColumnName: "roadTemperature", scoreColumnName: "Score");
+
+            // Return the R-squared value
+            return metrics.RSquared;
+        }
+        
+        
     }
 }
 

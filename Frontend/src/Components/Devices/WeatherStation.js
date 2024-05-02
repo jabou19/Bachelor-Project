@@ -1,13 +1,15 @@
 ﻿
 import React, { useState, useEffect } from 'react';
 import mqtt from 'mqtt';
-import {styles} from "../Styles/Stylesheet";
+import { styles } from "../Styles/Stylesheet";
 import WeatherPrediction from "../Prediction/WeatherPrediction";
+
 const MQTT_BROKER_URL = 'wss:9560e98a5b614e8cb8e275293952641a.s1.eu.hivemq.cloud:8884/mqtt';
 
-function WeatherStation() {
-    const [weatherData, setWeatherData] = useState([]);
+function WeatherStation({setWeatherData} ) {
+    const [weatherData, setWeatherDataLocal] = useState([]);
     const [connectionStatus, setConnectionStatus] = useState('Connecting...');
+    const [showTable, setShowTable] = useState(false);  // State to control table visibility
 
     useEffect(() => {
         const options = {
@@ -29,7 +31,9 @@ function WeatherStation() {
         client.on('message', (topic, message) => {
             const data = JSON.parse(message.toString());
             console.log(data.Timestamp); // Check what the timestamp looks like
-            setWeatherData(currentData => [...currentData, data]);
+            const newData = [...weatherData, data];
+            setWeatherDataLocal(newData);
+            setWeatherData(newData); // Update parent state
         });
 
         client.on('error', (error) => {
@@ -52,8 +56,7 @@ function WeatherStation() {
                 client.end();
             }
         };
-    }, []);
-
+    }, [setWeatherData]);
     const getConnectionStyle = (status) => {
         switch (status) {
             case 'Connected.':
@@ -69,39 +72,42 @@ function WeatherStation() {
 
     return (
         <div className="App">
-            <h1>Weather Station (WRSense)</h1>
             <div style={styles.statusLine}>Client Connection Status:
                 <span style={{ ...getConnectionStyle(connectionStatus), marginLeft: '20px' }}>
                     {connectionStatus}
                 </span>
             </div>
-            <WeatherPrediction></WeatherPrediction>
-            <table style={styles.table}>
-                <thead style={styles.th}>
-                <tr>
-                    <th>Road Temperature (°C)</th>
-                    <th>Air Temperature (°C)</th>
-                    <th>Air Humidity (%)</th>
-                    <th>Precipitation (mm) </th>
-                    <th>Battery Level (V)</th>
-                    <th>Time</th>
-                    <th>CreatedAt</th>
-                </tr>
-                </thead>
-                <tbody style={styles.td}>
-                {weatherData.map((data, index) => (
-                    <tr key={index}>
-                        <td>{data.RoadTemperature.toFixed(2)}</td>
-                        <td>{data.AirTemperature.toFixed(2)}</td>
-                        <td>{data.AirHumidity.toFixed(2)}</td>
-                        <td>{data.Precipitation}</td>
-                        <td>{data.BatteryLevel.toFixed(2)}</td>
-                        <td>{new Date(data.Time).toLocaleString()}</td>
-                        <td>{new Date(data.CreatedAt).toLocaleString()}</td>
+            <button onClick={() => setShowTable(!showTable)}>
+                {showTable ? 'Hide Weather Data' : 'Show Weather Data'}
+            </button>
+            {showTable && (
+                <table style={styles.table}>
+                    <thead style={styles.th}>
+                    <tr>
+                        <th>Road Temperature (°C)</th>
+                        <th>Air Temperature (°C)</th>
+                        <th>Air Humidity (%)</th>
+                        <th>Precipitation (mm) </th>
+                        <th>Battery Level (V)</th>
+                        <th>Time</th>
+                        <th>CreatedAt</th>
                     </tr>
-                ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody style={styles.td}>
+                    {weatherData.map((data, index) => (
+                        <tr key={index}>
+                            <td>{data.RoadTemperature.toFixed(2)}</td>
+                            <td>{data.AirTemperature.toFixed(2)}</td>
+                            <td>{data.AirHumidity.toFixed(2)}</td>
+                            <td>{data.Precipitation}</td>
+                            <td>{data.BatteryLevel.toFixed(2)}</td>
+                            <td>{new Date(data.Time).toLocaleString()}</td>
+                            <td>{new Date(data.CreatedAt).toLocaleString()}</td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+            )}
         </div>
     );
 }
