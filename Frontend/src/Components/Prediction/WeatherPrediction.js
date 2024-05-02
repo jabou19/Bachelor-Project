@@ -5,7 +5,10 @@ function WeatherPrediction() {
     const [inputs, setInputs] = useState({
         airTemperature: '',
         airHumidity: '',
-        precipitation: ''
+        precipitation: '',
+        batteryLevel:'',
+        time:'',
+        createdAt:'',
     });
     const [prediction, setPrediction] = useState(null);
 
@@ -23,7 +26,10 @@ function WeatherPrediction() {
         const data = {
             airTemperature: parseFloat(inputs.airTemperature),
             airHumidity: parseFloat(inputs.airHumidity),
-            precipitation: parseFloat(inputs.precipitation)
+            precipitation: parseFloat(inputs.precipitation),
+            batteryLevel:parseFloat(inputs.batteryLevel),
+            time: inputs.time,
+            createdAt: inputs.createdAt,
         };
 
         const response = await axios.post(apiUrl, data, { headers: { 'Content-Type': 'application/json' }});
@@ -48,16 +54,33 @@ function WeatherPrediction() {
                     Precipitation:
                     <input type="number" name="precipitation" value={inputs.precipitation} onChange={handleChange} />
                 </label>
+                <label>
+                    Battery Level:
+                    <input type="number" name="batteryLevel" value={inputs.batteryLevel} onChange={handleChange} />
+                </label>
+                {/*type="datetime-local"*/}
+                <label>
+                    Time
+                    <input type="text" name="time" value={inputs.time} onChange={handleChange} placeholder="YYYY-MM-DD HH:MM:SS" />
+                </label>
+                <label>
+                    Created At
+                    <input type="text" name="createdAt" value={inputs.createdAt} onChange={handleChange} placeholder="YYYY-MM-DD HH:MM:SS" />
+                </label>
+
                 <button type="submit">Predict</button>
             </form>
             {prediction &&   (
                 <div>
                     <h2>Prediction Results:</h2>
-                    <p>Road Temperature: {prediction.roadTemperature.toFixed(2)}</p>
+                    {/*<p>Road Temperature: {prediction.roadTemperature.toFixed(2)}</p>*/}
                     <p>Air Temperature: {prediction.airTemperature.toFixed(2)}</p>
                     <p>Air Humidity: {prediction.airHumidity.toFixed(2)}</p>
                     <p>Precipitation: {prediction.precipitation.toFixed(2)}</p>
-                    <p>Score: {prediction.score.toFixed(2)}</p>
+                    <p> Battery Level: {prediction.batteryLevel.toFixed(2)}</p>
+                    <p> Time: {prediction.time}</p>
+                    <p> CreatedAt: {prediction.createdAt}</p>
+                    <p>Predicted RoadTemperature Score: {prediction.score.toFixed(2)}</p>
                 </div>
             )}
         </div>
