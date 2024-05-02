@@ -72,20 +72,26 @@ app.Lifetime.ApplicationStopping.Register(async () =>
     await publisher.StopAsync();
 });
 
-// MapPost route for ML model prediction
-/*app.MapPost("/predict",
-    async (PredictionEnginePool<MLModel.ModelInput, MLModel.ModelOutput> predictionEnginePool, MLModel.ModelInput input) =>
-        await Task.FromResult(predictionEnginePool.Predict(input)))
-    .WithName("Predict")
-    .WithOpenApi();*/
 app.MapPost("/predict", async (PredictionEnginePool<MLModel.ModelInput, MLModel.ModelOutput> predictionEnginePool, MLModel.ModelInput input) =>
     {
         var result = predictionEnginePool.Predict(input);
-        Console.WriteLine($"Predicted Road Temperature: {result.RoadTemperature}");
+        Console.WriteLine($"Predicted Road Temperature: {result.Score}");
         return await Task.FromResult(result);
+
     })
     .WithName("Predict")
     .WithOpenApi();
+/*app.MapPost("/predict", (MLModel.ModelInput input) =>
+    {
+        // Use the static Predict method from the MLModel class
+        var result = MLModel.Predict(input);
+        Console.WriteLine($"Predicted Road Temperature: {result.Score}");
+
+        // Task.FromResult is used to wrap the result in a Task since the lambda is expected to be async
+        return Results.Ok(result);
+    })
+    .WithName("Predict")
+    .WithOpenApi();*/
 
 // Use CORS policy
 app.UseCors("AllowMyLocalhost");
