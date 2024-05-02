@@ -1,20 +1,4 @@
 
-/*static async Task Main(string[] args)
-   {
-       var Publisher = new MqttClientPublisher();
-       await Publisher.ConnectAndPublishAsync();
-       var subscriber = new MqttClientSubscriber();
-      await subscriber.ConnectAndSubscribeAsync();
-
-       Console.WriteLine("Press any key to exit...");
-       Console.ReadLine();
-
-      await subscriber.StopAsync();
-       await Publisher.StopAsync();
-       }#1#
-       */
-
-
 using Microsoft.Extensions.ML;
 using Microsoft.OpenApi.Models;
 using Backend.Backend.Communication_Layer;
