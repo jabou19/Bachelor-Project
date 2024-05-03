@@ -1,3 +1,4 @@
+/*
 // WeatherApp.js
 import React, { useState } from 'react';
 
@@ -12,6 +13,27 @@ function WeatherApp() {
         <div>
             <WeatherStation setWeatherData={setWeatherData} />
             <WeatherPrediction weatherData={weatherData} />
+        </div>
+    );
+}
+
+export default WeatherApp;
+*/
+import React, { useState } from 'react';
+import WeatherStation from "../Devices/WeatherStation";
+import WeatherPrediction from "../Prediction/WeatherPrediction";
+
+
+function WeatherApp() {
+    const [weatherData, setWeatherData] = useState([]);
+
+    // Get the last entry's road temperature, if available
+    const actualTemperature = weatherData.length > 0 ? weatherData[weatherData.length - 1].RoadTemperature : 0;
+
+    return (
+        <div>
+            <WeatherStation setWeatherData={setWeatherData} />
+            <WeatherPrediction weatherData={weatherData} actualTemperature={actualTemperature} />
         </div>
     );
 }
