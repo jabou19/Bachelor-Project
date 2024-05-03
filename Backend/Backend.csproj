@@ -15,11 +15,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backend\" />
-    <Folder Include="MLModel_WebApi1\bin\Debug\net6.0\" />
-    <Folder Include="MLModel_WebApi1\bin\Release\net6.0\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="MLModel_WebApi1\MLModel_WebApi1.csproj" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MLModel_WebApi1\MLModel_WebApi1.csproj" />
