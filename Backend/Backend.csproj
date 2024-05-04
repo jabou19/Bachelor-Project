@@ -17,6 +17,6 @@
     <Folder Include="Backend\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MLModel_WebApi1\MLModel_WebApi1.csproj" />
+    <ProjectReference Include="..\WeatherStationMLModel\WeatherStationMLModel.csproj" />
   </ItemGroup>
 </Project>

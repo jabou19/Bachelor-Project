@@ -678,7 +678,7 @@
           }
         }
       },
-      "MLModel_WebApi1/1.0.0": {
+      "WeatherStationMLModel/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -688,10 +688,10 @@
           "Swashbuckle.AspNetCore": "6.1.4"
         },
         "compile": {
-          "bin/placeholder/MLModel_WebApi1.dll": {}
+          "bin/placeholder/WeatherStationMLModel.dll": {}
         },
         "runtime": {
-          "bin/placeholder/MLModel_WebApi1.dll": {}
+          "bin/placeholder/WeatherStationMLModel.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -2019,22 +2019,22 @@
         "system.threading.tasks.nuspec"
       ]
     },
-    "MLModel_WebApi1/1.0.0": {
+    "WeatherStationMLModel/1.0.0": {
       "type": "project",
-      "path": "../MLModel_WebApi1/MLModel_WebApi1.csproj",
-      "msbuildProject": "../MLModel_WebApi1/MLModel_WebApi1.csproj"
+      "path": "../WeatherStationMLModel/WeatherStationMLModel.csproj",
+      "msbuildProject": "../WeatherStationMLModel/WeatherStationMLModel.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "MLModel_WebApi1 >= 1.0.0",
       "MQTTnet >= 3.1.2",
       "Microsoft.AspNetCore.OpenApi >= 8.0.3",
       "Microsoft.Extensions.ML >= 1.5.5",
       "Microsoft.ML >= 2.0.0",
       "Microsoft.ML.FastTree >= 2.0.0",
       "Newtonsoft.Json >= 13.0.3",
-      "Swashbuckle.AspNetCore >= 6.4.0"
+      "Swashbuckle.AspNetCore >= 6.4.0",
+      "WeatherStationMLModel >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2062,8 +2062,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\MLModel_WebApi1\\MLModel_WebApi1.csproj": {
-              "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\MLModel_WebApi1\\MLModel_WebApi1.csproj"
+            "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationMLModel\\WeatherStationMLModel.csproj": {
+              "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationMLModel\\WeatherStationMLModel.csproj"
             }
           }
         }

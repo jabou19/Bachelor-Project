@@ -5,7 +5,7 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Collections.Generic;
-namespace MLModel_WebApi1
+namespace WeatherStationMLModel
 {
     public partial class MLModel
     {

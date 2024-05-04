@@ -1,15 +1,15 @@
 {
   "Version": 1,
-  "Hash": "scLo6KcRLUPLKukuVlwTJl+fYcpu58XoHfMolQNRj7E=",
+  "Hash": "ZsXoMGDiYyz30bDXSY1E0gUvnMFN8QCgwiQcNHf58pw=",
   "Source": "Backend",
   "BasePath": "_content/Backend",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\MLModel_WebApi1\\MLModel_WebApi1.csproj",
+      "Identity": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationMLModel\\WeatherStationMLModel.csproj",
       "Version": 2,
-      "Source": "MLModel_WebApi1",
+      "Source": "WeatherStationMLModel",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
       "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
       "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",

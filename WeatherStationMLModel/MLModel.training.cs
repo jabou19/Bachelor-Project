@@ -10,7 +10,7 @@ using Microsoft.ML.Trainers.FastTree;
 using Microsoft.ML.Trainers;
 using Microsoft.ML;
 
-namespace MLModel_WebApi1
+namespace WeatherStationMLModel
 {
     public partial class MLModel
     {

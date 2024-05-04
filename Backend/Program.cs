@@ -3,7 +3,7 @@ using Microsoft.Extensions.ML;
 using Microsoft.OpenApi.Models;
 using Backend.Backend.Communication_Layer;
 using Microsoft.ML;
-using MLModel_WebApi1;
+using WeatherStationMLModel;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,13 +15,13 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod()
             .AllowAnyHeader());
 });
-// Register prediction engine
-builder.Services.AddPredictionEnginePool<MLModel.ModelInput, MLModel.ModelOutput>()
-    .FromFile("MLModel.mlnet");
 
 // Register MQTT Publisher and Subscriber as Singleton
 builder.Services.AddSingleton<MqttClientPublisher>();
 builder.Services.AddSingleton<MqttClientSubscriber>();
+// Register prediction engine
+builder.Services.AddPredictionEnginePool<MLModel.ModelInput, MLModel.ModelOutput>()
+    .FromFile("MLModel.mlnet");
 
 // Add services to the container for OpenAPI/Swagger
 builder.Services.AddEndpointsApiExplorer();
@@ -31,15 +31,6 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"));
-}
-
-app.UseHttpsRedirection();
 
 // Configure MQTT Clients
 var publisher = app.Services.GetRequiredService<MqttClientPublisher>();
@@ -56,6 +47,18 @@ app.Lifetime.ApplicationStopping.Register(async () =>
     await subscriber.StopAsync();
     await publisher.StopAsync();
 });
+
+
+
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"));
+}
+
+app.UseHttpsRedirection();
 
 app.MapPost("/predict", async (PredictionEnginePool<MLModel.ModelInput, MLModel.ModelOutput> predictionEnginePool, MLModel.ModelInput input) =>
     {
@@ -84,7 +87,6 @@ app.MapGet("/evaluate-model", async () =>
         Console.WriteLine($"R-squared on training data: {rSquared}");
         // Return the R-squared value in the response
         return Results.Ok(new { RSquared = rSquared });
-        
     })
     .WithName("EvaluateModel")
     .WithOpenApi();
