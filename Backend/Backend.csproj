@@ -19,4 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\WeatherStationMLModel\WeatherStationMLModel.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Files\HistoricalData_JSONFiles\WaterLevel\cleaned_water-level.json" />
+  </ItemGroup>
 </Project>

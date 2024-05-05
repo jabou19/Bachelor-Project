@@ -65,7 +65,7 @@ public class MqttClientPublisher
         ((WaterLevel_USense)USense).ReadingData();
         var jsonData_USense = JsonSerializer.Serialize((WaterLevel_USense)USense);
         var message_USense = new MqttApplicationMessageBuilder()
-            .WithTopic("WaterLevel_USense/data")
+            .WithTopic("water/data")
             .WithPayload(jsonData_USense)
             .WithExactlyOnceQoS()
             .WithRetainFlag()
@@ -74,7 +74,7 @@ public class MqttClientPublisher
         ((PersonCounter)personCount).ReadingData();
         var jasonData_PersonCount = JsonSerializer.Serialize((PersonCounter)personCount);
         var message_PersonCount = new MqttApplicationMessageBuilder()
-            .WithTopic("PersonCounter/data")
+            .WithTopic("person/data")
             .WithPayload(jasonData_PersonCount)
             .WithExactlyOnceQoS()
             .WithRetainFlag()

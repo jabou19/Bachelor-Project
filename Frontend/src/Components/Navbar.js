@@ -9,13 +9,13 @@ const Navbar = () => {
 
     const navbarStyle = {
         display: 'flex',
-        alignItems: 'center',
+       alignItems: 'center',
         justifyContent: 'left',
         padding: '10px 0',
         listStyle: 'none',
-        margin: 10,
+        margin: 15,
         marginLeft:70,
-        gap: '30px',
+        gap: '20px',
     };
 
     const linkStyle = {
@@ -47,10 +47,6 @@ const Navbar = () => {
             <NavLink to="/personcounter" style={isLinkActive('/personcounter') ? activeLinkStyle : linkStyle}>
                 {'Person Counter'}
             </NavLink>
-            {/*<NavLink to="/weatherstationprediction" style={isLinkActive('/weatherstationprediction') ? activeLinkStyle : linkStyle}>
-                {'Weather Prediction'}
-            </NavLink>*/}
-       {/*     <Connection> </Connection>*/}
         </nav>
     );
 };

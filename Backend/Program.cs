@@ -39,7 +39,7 @@ var subscriber = app.Services.GetRequiredService<MqttClientSubscriber>();
 app.Lifetime.ApplicationStarted.Register(async () =>
 {
     await publisher.ConnectAndPublishAsync();
-    //await subscriber.ConnectAndSubscribeAsync();
+    await subscriber.ConnectAndSubscribeAsync();
 });
 
 app.Lifetime.ApplicationStopping.Register(async () =>

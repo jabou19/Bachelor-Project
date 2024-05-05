@@ -36,7 +36,6 @@ C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backen
 C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backend\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backend\bin\Debug\net8.0\appsettings.json
 C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backend\bin\Debug\net8.0\Files\HistoricalData_JSONFiles\persorCounter\people-counter.json
-C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backend\bin\Debug\net8.0\Files\HistoricalData_JSONFiles\WaterLevel\cleaned_water-level.json
 C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backend\bin\Debug\net8.0\Files\HistoricalData_JSONFiles\WaterLevel\water-level.json
 C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backend\bin\Debug\net8.0\Files\HistoricalData_JSONFiles\WeatherStations\cleaned_wrsense-timestamp.json
 C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backend\bin\Debug\net8.0\Files\HistoricalData_JSONFiles\WeatherStations\wsense-battery.json
@@ -103,3 +102,4 @@ C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backen
 C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backend\bin\Debug\net8.0\WeatherStationMLModel.exe
 C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backend\bin\Debug\net8.0\WeatherStationMLModel.dll
 C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backend\bin\Debug\net8.0\WeatherStationMLModel.pdb
+C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backend\bin\Debug\net8.0\Files\HistoricalData_JSONFiles\WaterLevel\cleaned-water-level.json

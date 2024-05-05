@@ -4,10 +4,9 @@ import Home from "./Components/Home";
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from "./Components/Navbar";
-import WaterLevel from "./Components/Devices/WaterLevel";
-import PersonCounter from "./Components/Devices/PersonCounter";
-import WeatherPrediction from "./Components/Prediction/WeatherPrediction";
 import WeatherApp from "./Components/APP/WeatherApp";
+import WaterLevelApp from "./Components/APP/WaterLevelApp";
+import PersonCounterAPP from "./Components/APP/PersonCounterAPP";
 function App() {
   return (
       <Router>
@@ -15,8 +14,8 @@ function App() {
           <Routes>
              <Route path="/" element={<Home />} />
              <Route path="/weatherstation" element={< WeatherApp  />} />
-              <Route path="/waterlevel" element={< WaterLevel/>} />
-              <Route path="/personcounter" element={< PersonCounter/>} />
+              <Route path="/waterlevel" element={< WaterLevelApp/>} />
+              <Route path="/personcounter" element={< PersonCounterAPP/>} />
           </Routes>
       </Router>
 
