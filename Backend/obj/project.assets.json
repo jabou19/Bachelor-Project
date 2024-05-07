@@ -678,6 +678,25 @@
           }
         }
       },
+      "WaterLevelMLModel_Api/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.Extensions.ML": "1.5.5",
+          "Microsoft.ML": "2.0.0",
+          "Microsoft.ML.FastTree": "2.0.0",
+          "Swashbuckle.AspNetCore": "6.1.4"
+        },
+        "compile": {
+          "bin/placeholder/WaterLevelMLModel_Api.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WaterLevelMLModel_Api.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "WeatherStationMLModel/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -2019,6 +2038,11 @@
         "system.threading.tasks.nuspec"
       ]
     },
+    "WaterLevelMLModel_Api/1.0.0": {
+      "type": "project",
+      "path": "../WaterLevelMLModel_Api/WaterLevelMLModel_Api.csproj",
+      "msbuildProject": "../WaterLevelMLModel_Api/WaterLevelMLModel_Api.csproj"
+    },
     "WeatherStationMLModel/1.0.0": {
       "type": "project",
       "path": "../WeatherStationMLModel/WeatherStationMLModel.csproj",
@@ -2034,6 +2058,7 @@
       "Microsoft.ML.FastTree >= 2.0.0",
       "Newtonsoft.Json >= 13.0.3",
       "Swashbuckle.AspNetCore >= 6.4.0",
+      "WaterLevelMLModel_Api >= 1.0.0",
       "WeatherStationMLModel >= 1.0.0"
     ]
   },
@@ -2062,6 +2087,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+            "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WaterLevelMLModel_Api\\WaterLevelMLModel_Api.csproj": {
+              "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WaterLevelMLModel_Api\\WaterLevelMLModel_Api.csproj"
+            },
             "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationMLModel\\WeatherStationMLModel.csproj": {
               "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationMLModel\\WeatherStationMLModel.csproj"
             }
