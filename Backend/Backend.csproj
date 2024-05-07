@@ -17,9 +17,15 @@
     <Folder Include="Backend\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WaterLevelMLModel_Api\WaterLevelMLModel_Api.csproj" />
     <ProjectReference Include="..\WeatherStationMLModel\WeatherStationMLModel.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Files\HistoricalData_JSONFiles\WaterLevel\cleaned_water-level.json" />
+  </ItemGroup>
+  <ItemGroup Label="WaterLevelMLModel">
+    <None Include="WaterLevelMLModel.mlnet">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

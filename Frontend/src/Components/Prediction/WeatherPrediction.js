@@ -19,7 +19,7 @@ function WeatherPrediction({ weatherData, actualTemperature }) {
 
     const fetchRSquared = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/evaluate-model');
+            const response = await axios.get('http://localhost:5000/evaluate-road');
             setRSquared(response.data.rSquared);
         } catch (error) {
             console.error('Error fetching R-squared:', error);
@@ -51,7 +51,7 @@ function WeatherPrediction({ weatherData, actualTemperature }) {
     }, [weatherData]);
 
     const predictWeather = async (data) => {
-        const apiUrl = 'http://localhost:5000/predict';
+        const apiUrl = 'http://localhost:5000/predict-road';
         try {
             const response = await axios.post(apiUrl, data, {
                 headers: { 'Content-Type': 'application/json' }

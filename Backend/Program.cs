@@ -1,8 +1,10 @@
 
+using Backend;
 using Microsoft.Extensions.ML;
 using Microsoft.OpenApi.Models;
 using Backend.Backend.Communication_Layer;
 using Microsoft.ML;
+using WaterLevelMLModel_Api;
 using WeatherStationMLModel;
 
 
@@ -22,6 +24,8 @@ builder.Services.AddSingleton<MqttClientSubscriber>();
 // Register prediction engine
 builder.Services.AddPredictionEnginePool<MLModel.ModelInput, MLModel.ModelOutput>()
     .FromFile("MLModel.mlnet");
+builder.Services.AddPredictionEnginePool<WaterLevelMLModel.ModelInput, WaterLevelMLModel.ModelOutput>()
+    .FromFile("WaterLevelMLModel.mlnet");
 
 // Add services to the container for OpenAPI/Swagger
 builder.Services.AddEndpointsApiExplorer();
@@ -39,7 +43,7 @@ var subscriber = app.Services.GetRequiredService<MqttClientSubscriber>();
 app.Lifetime.ApplicationStarted.Register(async () =>
 {
     await publisher.ConnectAndPublishAsync();
-    await subscriber.ConnectAndSubscribeAsync();
+    //await subscriber.ConnectAndSubscribeAsync();
 });
 
 app.Lifetime.ApplicationStopping.Register(async () =>
@@ -60,7 +64,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapPost("/predict", async (PredictionEnginePool<MLModel.ModelInput, MLModel.ModelOutput> predictionEnginePool, MLModel.ModelInput input) =>
+app.MapPost("/predict-road", async (PredictionEnginePool<MLModel.ModelInput, MLModel.ModelOutput> predictionEnginePool, MLModel.ModelInput input) =>
     {
         var result = predictionEnginePool.Predict(input);
         Console.WriteLine($"Predicted Road Temperature: {result.Score}");
@@ -72,7 +76,7 @@ app.MapPost("/predict", async (PredictionEnginePool<MLModel.ModelInput, MLModel.
 // Assuming the project root is the current directory if running directly from project
 // For deployments, ensure this points to the root directory of the deployed files
 builder.Host.UseContentRoot(Directory.GetCurrentDirectory());
-app.MapGet("/evaluate-model", async () =>
+app.MapGet("/evaluate-road", async () =>
     {
         var mlContext = new MLContext();
 
@@ -84,13 +88,43 @@ app.MapGet("/evaluate-model", async () =>
         ITransformer model = mlContext.Model.Load(modelPath, out var schema);
         // Calculate R-squared on the training data
         double rSquared = MLModel.CalculateRSquaredOnTrainingData(mlContext, model, trainingData);
-        Console.WriteLine($"R-squared on training data: {rSquared}");
+        Console.WriteLine($"R-squared on training data for Road Temperature: {rSquared}");
         // Return the R-squared value in the response
         return Results.Ok(new { RSquared = rSquared });
     })
     .WithName("EvaluateModel")
     .WithOpenApi();
+// Waterlevel Prediction Endpoint
+app.MapPost("/predict-water", async (PredictionEnginePool<WaterLevelMLModel.ModelInput, WaterLevelMLModel.ModelOutput> predictionEnginePool, WaterLevelMLModel.ModelInput input) =>
+    {
+        var result = predictionEnginePool.Predict(input);
+        Console.WriteLine($"Predicted Water Level Score: {result.Score}");
+        return await Task.FromResult(result);
+    })
+    .WithName("PredictWaterLevel")
+    .WithOpenApi();
 
+// Endpoint to evaluate the model
+app.MapGet("/evaluate-water", async () =>
+    {
+        var mlContext = new MLContext();
+
+        // Load the model and training data
+        var modelPath = "WaterLevelMLModel.mlnet";
+        var trainingDataPath = "Files/CVS/WaterLevelFiltered.csv";
+        IDataView trainingData = WaterLevelMLModel.LoadIDataViewFromFile(mlContext, trainingDataPath, ',', true);
+        ITransformer model = mlContext.Model.Load(modelPath, out var schema);
+
+        // Calculate R-squared on the training data
+        double rSquared = WaterLevelMLModel.CalculateRSquaredOnTrainingDataWater(mlContext, model, trainingData);
+        Console.WriteLine($"R-squared on training data for Water Level: {rSquared}");
+
+        // Return the R-squared value
+        return Results.Ok(new { RSquared = rSquared });
+    })
+    .WithName("EvaluateWater")
+    .WithOpenApi();
+// Apply CORS policy
 // Use CORS policy
 app.UseCors("AllowMyLocalhost");
 app.Run();

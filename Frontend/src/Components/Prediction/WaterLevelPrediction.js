@@ -16,7 +16,7 @@ function WaterLevelPrediction({ waterData, actualWaterLevel }) {
 
     const fetchRSquared = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/evaluate-model');
+            const response = await axios.get('http://localhost:5000/evaluate-water');
             setRSquared(response.data.rSquared);
         } catch (error) {
             console.error('Error fetching R-squared:', error);
@@ -44,7 +44,7 @@ function WaterLevelPrediction({ waterData, actualWaterLevel }) {
     }, [waterData]);
 
     const predictWeather = async (data) => {
-        const apiUrl = 'http://localhost:5000/predict';
+        const apiUrl = 'http://localhost:5000/predict-water';
         try {
             const response = await axios.post(apiUrl, data, {
                 headers: { 'Content-Type': 'application/json' }
@@ -93,7 +93,7 @@ function WaterLevelPrediction({ waterData, actualWaterLevel }) {
                 {prediction && (
                     <div>
                         <h3>Prediction Results:</h3>
-                        <p>Predicted Water Level: {prediction.score.toFixed(2)} (m)</p>
+                        <p>Predicted Water Level: {prediction.score} (m)</p>
                         <p>Actual Water Level: {actualWaterLevel.toFixed(2)} (m)</p>
                         <p>Difference Between Predicted and Actual Water Level:  </p>
                         <p style={resultStyle}>{temperatureDifference} (m) - {result}</p>
