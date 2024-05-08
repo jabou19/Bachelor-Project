@@ -9,7 +9,7 @@ using System;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-public class MqttClientPublisher
+public class Publisher
 {
     private IMqttClient _client;
     private IMqttClientOptions _options;
@@ -19,7 +19,7 @@ public class MqttClientPublisher
     private Devices USense = new WaterLevel_USense();
     private Devices personCount = new PersonCounter();
     
-    public async Task ConnectAndPublishAsync()
+    public async Task Connect()
     {
         var factory = new MqttFactory();
         _client = factory.CreateMqttClient();
@@ -35,11 +35,11 @@ public class MqttClientPublisher
 
         // Setup the timer to trigger every 3 seconds
         _timer = new System.Timers.Timer(1500);
-        _timer.Elapsed += async (sender, args) => await PublishDataAsync();
+        _timer.Elapsed += async (sender, args) => await Publish();
         _timer.Enabled = true;
     }
 
-    private async Task PublishDataAsync()
+    private async Task Publish()
     {
         // Generate data 
         ((WeatherStation_WSense)WSense).ReadingData();

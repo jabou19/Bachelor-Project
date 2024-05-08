@@ -7,12 +7,12 @@ using System;
 using System.Text;
 using System.Threading.Tasks;
 
-public class MqttClientSubscriber
+public class Subscriber
 {
     private IMqttClient _client;
     private IMqttClientOptions _options;
 
-    public async Task ConnectAndSubscribeAsync()
+    public async Task Connect()
     {
         var factory = new MqttFactory();
         _client = factory.CreateMqttClient();

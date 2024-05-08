@@ -18,8 +18,8 @@ builder.Services.AddCors(options =>
 });
 
 // Register MQTT Publisher and Subscriber as Singleton
-builder.Services.AddSingleton<MqttClientPublisher>();
-builder.Services.AddSingleton<MqttClientSubscriber>();
+builder.Services.AddSingleton<Publisher>();
+builder.Services.AddSingleton<Subscriber>();
 // Register prediction engine
 builder.Services.AddPredictionEnginePool<MLModel.ModelInput, MLModel.ModelOutput>()
     .FromFile("MLModel.mlnet");
@@ -36,13 +36,13 @@ builder.Services.AddSwaggerGen(c =>
 var app = builder.Build();
 
 // Configure MQTT Clients
-var publisher = app.Services.GetRequiredService<MqttClientPublisher>();
-var subscriber = app.Services.GetRequiredService<MqttClientSubscriber>();
+var publisher = app.Services.GetRequiredService<Publisher>();
+var subscriber = app.Services.GetRequiredService<Subscriber>();
 
 app.Lifetime.ApplicationStarted.Register(async () =>
 {
-    await publisher.ConnectAndPublishAsync();
-    //await subscriber.ConnectAndSubscribeAsync();
+    await publisher.Connect();
+    await subscriber.Connect();
 });
 
 app.Lifetime.ApplicationStopping.Register(async () =>
