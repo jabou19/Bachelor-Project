@@ -2,7 +2,7 @@
 
 namespace Backend.Backend.Services_layer;
 
-public class WeatherStation_WRSense:IDevices 
+public class WeatherStation_WRSense:Devices 
 { 
     public double RoadTemperature { get; set; }
     public double AirTemperature { get; set; }
@@ -11,8 +11,8 @@ public class WeatherStation_WRSense:IDevices
     public double? BatteryLevel { get;  set; }
     public DateTime? Time { get;  set; }
     public DateTime? CreatedAt { get; set; }
-    private readonly string FilePath = "Files/HistoricalData_JSONFiles/WeatherStations/cleaned_wrsense-timestamp.json";
-    private int currentIndex = 0; // Field to keep track of the current index
+    public string FilePath { get;  }= "Files/HistoricalData_JSONFiles/WeatherStations/cleaned_wrsense-timestamp.json";
+    public int CurrentIndex { get; private set; }= 0; // Field to keep track of the current index
 
     public WeatherStation_WRSense()
     {
@@ -39,7 +39,7 @@ public class WeatherStation_WRSense:IDevices
             throw new Exception("JSON array is empty.");
         }
 
-        JObject item = jsonArray[currentIndex] as JObject;
+        JObject item = jsonArray[CurrentIndex] as JObject;
         RoadTemperature = item["roadTemperature"]?.Value<double>() ?? RoadTemperature;
         AirTemperature = item["airTemperature"]?.Value<double>() ?? AirTemperature;
         AirHumidity = item["airHumidity"]?.Value<double>() ?? AirHumidity;
@@ -47,6 +47,6 @@ public class WeatherStation_WRSense:IDevices
         BatteryLevel = item["batteryLevel"]?.Value<double>() ?? BatteryLevel;
         Time = item["time"]?.Value<DateTime>() ?? DateTime.MinValue;
         CreatedAt = item["createdAt"]?.Value<DateTime>() ?? DateTime.MinValue;
-        currentIndex = (currentIndex + 1) % jsonArray.Count; // Increment and wrap the index
+        CurrentIndex = (CurrentIndex + 1) % jsonArray.Count; // Increment and wrap the index
     }
 }

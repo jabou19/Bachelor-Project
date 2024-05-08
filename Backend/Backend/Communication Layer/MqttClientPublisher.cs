@@ -14,10 +14,10 @@ public class MqttClientPublisher
     private IMqttClient _client;
     private IMqttClientOptions _options;
     private System.Timers.Timer _timer;
-    private IDevices WSense= new WeatherStation_WSense();
-    private IDevices WRSense = new WeatherStation_WRSense();
-    private IDevices USense = new WaterLevel_USense();
-    private IDevices personCount = new PersonCounter();
+    private Devices WSense= new WeatherStation_WSense();
+    private Devices WRSense = new WeatherStation_WRSense();
+    private Devices USense = new WaterLevel_USense();
+    private Devices personCount = new PersonCounter();
     
     public async Task ConnectAndPublishAsync()
     {
