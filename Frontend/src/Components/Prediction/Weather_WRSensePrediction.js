@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { styles } from "../Styles/Stylesheet";
 
-function WeatherPrediction({ weatherData, actualTemperature }) {
+function Weather_WRSensePrediction({ weatherData, actualTemperature }) {
     const [inputs, setInputs] = useState({
         airTemperature: '',
         airHumidity: '',
@@ -115,4 +115,4 @@ function WeatherPrediction({ weatherData, actualTemperature }) {
     );
 }
 
-export default WeatherPrediction;
+export default Weather_WRSensePrediction;

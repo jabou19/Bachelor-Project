@@ -715,6 +715,25 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "WeatherStationWSenseMLModel_Api/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.Extensions.ML": "1.5.5",
+          "Microsoft.ML": "2.0.0",
+          "Microsoft.ML.FastTree": "2.0.0",
+          "Swashbuckle.AspNetCore": "6.1.4"
+        },
+        "compile": {
+          "bin/placeholder/WeatherStationWSenseMLModel_Api.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WeatherStationWSenseMLModel_Api.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -2047,6 +2066,11 @@
       "type": "project",
       "path": "../WeatherStationMLModel/WeatherStationMLModel.csproj",
       "msbuildProject": "../WeatherStationMLModel/WeatherStationMLModel.csproj"
+    },
+    "WeatherStationWSenseMLModel_Api/1.0.0": {
+      "type": "project",
+      "path": "../WeatherStationWSenseMLModel_Api/WeatherStationWSenseMLModel_Api.csproj",
+      "msbuildProject": "../WeatherStationWSenseMLModel_Api/WeatherStationWSenseMLModel_Api.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -2059,7 +2083,8 @@
       "Newtonsoft.Json >= 13.0.3",
       "Swashbuckle.AspNetCore >= 6.4.0",
       "WaterLevelMLModel_Api >= 1.0.0",
-      "WeatherStationMLModel >= 1.0.0"
+      "WeatherStationMLModel >= 1.0.0",
+      "WeatherStationWSenseMLModel_Api >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2092,6 +2117,9 @@
             },
             "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationMLModel\\WeatherStationMLModel.csproj": {
               "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationMLModel\\WeatherStationMLModel.csproj"
+            },
+            "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWSenseMLModel_Api\\WeatherStationWSenseMLModel_Api.csproj": {
+              "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWSenseMLModel_Api\\WeatherStationWSenseMLModel_Api.csproj"
             }
           }
         }

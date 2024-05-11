@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherStationMLModel", "We
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WaterLevelMLModel_Api", "WaterLevelMLModel_Api\WaterLevelMLModel_Api.csproj", "{47BC494D-2591-4552-9DE8-F041F113F758}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherStationWSenseMLModel_Api", "WeatherStationWSenseMLModel_Api\WeatherStationWSenseMLModel_Api.csproj", "{530983BE-CA7D-4A89-B997-39ED4017F724}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{47BC494D-2591-4552-9DE8-F041F113F758}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47BC494D-2591-4552-9DE8-F041F113F758}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47BC494D-2591-4552-9DE8-F041F113F758}.Release|Any CPU.Build.0 = Release|Any CPU
+		{530983BE-CA7D-4A89-B997-39ED4017F724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{530983BE-CA7D-4A89-B997-39ED4017F724}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{530983BE-CA7D-4A89-B997-39ED4017F724}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{530983BE-CA7D-4A89-B997-39ED4017F724}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

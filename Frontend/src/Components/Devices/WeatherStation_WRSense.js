@@ -2,11 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import mqtt from 'mqtt';
 import { styles } from "../Styles/Stylesheet";
-import WeatherPrediction from "../Prediction/WeatherPrediction";
+import Weather_WRSensePrediction from "../Prediction/Weather_WRSensePrediction";
 
 const MQTT_BROKER_URL = 'wss:9560e98a5b614e8cb8e275293952641a.s1.eu.hivemq.cloud:8884/mqtt';
 
-function WeatherStation({setWeatherData} ) {
+function WeatherStation_WRSense({setWeatherData} ) {
     const [weatherData, setWeatherDataLocal] = useState([]);
     const [connectionStatus, setConnectionStatus] = useState('Connecting...');
     const [showTable, setShowTable] = useState(false);  // State to control table visibility
@@ -112,4 +112,4 @@ function WeatherStation({setWeatherData} ) {
     );
 }
 
-export default WeatherStation;
+export default WeatherStation_WRSense;

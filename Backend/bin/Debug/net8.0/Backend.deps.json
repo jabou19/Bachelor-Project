@@ -16,7 +16,8 @@
           "Newtonsoft.Json": "13.0.3",
           "Swashbuckle.AspNetCore": "6.4.0",
           "WaterLevelMLModel_Api": "1.0.0",
-          "WeatherStationMLModel": "1.0.0"
+          "WeatherStationMLModel": "1.0.0",
+          "WeatherStationWSenseMLModel_Api": "1.0.0"
         },
         "runtime": {
           "Backend.dll": {}
@@ -376,6 +377,17 @@
         "runtime": {
           "WeatherStationMLModel.dll": {}
         }
+      },
+      "WeatherStationWSenseMLModel_Api/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.ML": "1.5.5",
+          "Microsoft.ML": "2.0.0",
+          "Microsoft.ML.FastTree": "2.0.0",
+          "Swashbuckle.AspNetCore": "6.4.0"
+        },
+        "runtime": {
+          "WeatherStationWSenseMLModel_Api.dll": {}
+        }
       }
     }
   },
@@ -657,6 +669,11 @@
       "sha512": ""
     },
     "WeatherStationMLModel/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "WeatherStationWSenseMLModel_Api/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

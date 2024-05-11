@@ -5,6 +5,7 @@ using Backend.Backend.Communication_Layer;
 using Microsoft.ML;
 using WaterLevelMLModel_Api;
 using WeatherStationMLModel;
+using WeatherStationWSenseMLModel_Api;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,6 +26,8 @@ builder.Services.AddPredictionEnginePool<MLModel.ModelInput, MLModel.ModelOutput
     .FromFile("MLModel.mlnet");
 builder.Services.AddPredictionEnginePool<WaterLevelMLModel.ModelInput, WaterLevelMLModel.ModelOutput>()
     .FromFile("WaterLevelMLModel.mlnet");
+builder.Services.AddPredictionEnginePool<WeatherStationWSenseMLModel.ModelInput, WeatherStationWSenseMLModel.ModelOutput>()
+    .FromFile("WeatherStationWSenseMLModel.mlnet");
 
 // Add services to the container for OpenAPI/Swagger
 builder.Services.AddEndpointsApiExplorer();
@@ -42,7 +45,7 @@ var subscriber = app.Services.GetRequiredService<Subscriber>();
 app.Lifetime.ApplicationStarted.Register(async () =>
 {
     await publisher.Connect();
-    await subscriber.Connect();
+   // await subscriber.Connect();
 });
 
 app.Lifetime.ApplicationStopping.Register(async () =>
@@ -93,6 +96,36 @@ app.MapGet("/evaluate-road", async () =>
     })
     .WithName("EvaluateModel")
     .WithOpenApi();
+// Define prediction route & handler
+app.MapPost("/predict-wrsensor",
+    async (PredictionEnginePool<WeatherStationWSenseMLModel.ModelInput, WeatherStationWSenseMLModel.ModelOutput> predictionEnginePool, WeatherStationWSenseMLModel.ModelInput input) =>
+    {
+        var result = predictionEnginePool.Predict(input);
+        Console.WriteLine($"Predicted Road Temperature: {result.Score}");
+        return await Task.FromResult(result);
+    })
+    .WithName("Predict WeatherStation_WSense")
+    .WithOpenApi();
+
+app.MapGet("/evaluate-wrsensor", async () =>
+    {
+        var mlContext = new MLContext();
+
+        // Load the model and training data
+        // Relative paths from the repository root
+        var modelPath = "WeatherStationWSenseMLModel.mlnet";
+        var trainingDataPath = "Files/CVS/wsense-thermocable.csv";
+        IDataView trainingData = WeatherStationWSenseMLModel.LoadIDataViewFromFile(mlContext, trainingDataPath, ',', true);
+        ITransformer model = mlContext.Model.Load(modelPath, out var schema);
+        // Calculate R-squared on the training data
+        double rSquared = WeatherStationWSenseMLModel.CalculateRSquaredOnTrainingWSenseData(mlContext, model, trainingData);
+        Console.WriteLine($"R-squared on training data for Road Temperature: {rSquared}");
+        // Return the R-squared value in the response
+        return Results.Ok(new { RSquared = rSquared });
+    })
+    .WithName("EvaluateModel wrsensor")
+    .WithOpenApi();
+
 // Waterlevel Prediction Endpoint
 app.MapPost("/predict-water", async (PredictionEnginePool<WaterLevelMLModel.ModelInput, WaterLevelMLModel.ModelOutput> predictionEnginePool, WaterLevelMLModel.ModelInput input) =>
     {
@@ -100,7 +133,7 @@ app.MapPost("/predict-water", async (PredictionEnginePool<WaterLevelMLModel.Mode
         Console.WriteLine($"Predicted Water Level Score: {result.Score}");
         return await Task.FromResult(result);
     })
-    .WithName("PredictWaterLevel")
+    .WithName("Predict Water Level")
     .WithOpenApi();
 
 // Endpoint to evaluate the model

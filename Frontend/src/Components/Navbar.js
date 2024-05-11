@@ -37,8 +37,11 @@ const Navbar = () => {
             <NavLink to="/" style={isLinkActive('/') ? activeLinkStyle : linkStyle}>
                 {'Home'}
             </NavLink>
-            <NavLink to="/weatherstation" style={isLinkActive('/weatherstation') ? activeLinkStyle : linkStyle}>
-                {'Weather Station'}
+            <NavLink to="/weatherstation_wrsense" style={isLinkActive('/weatherstation_wrsense') ? activeLinkStyle : linkStyle}>
+                {'Weather Station_WRSense'}
+            </NavLink>
+            <NavLink to="/weatherstation_wsense" style={isLinkActive('/weatherstation_wsense') ? activeLinkStyle : linkStyle}>
+                {'Weather Station_WSense'}
             </NavLink>
             <NavLink to="/waterlevel" style={isLinkActive('/waterlevel') ? activeLinkStyle : linkStyle}>
                 {'Water Level'}

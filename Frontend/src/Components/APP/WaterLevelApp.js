@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import WeatherPrediction from "../Prediction/WeatherPrediction";
+import Weather_WRSensePrediction from "../Prediction/Weather_WRSensePrediction";
 import WaterLevel from "../Devices/WaterLevel";
 import WaterLevelPrediction from "../Prediction/WaterLevelPrediction";
 
