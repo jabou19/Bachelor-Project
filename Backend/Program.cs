@@ -66,19 +66,19 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapPost("/predict-road", async (PredictionEnginePool<MLModel.ModelInput, MLModel.ModelOutput> predictionEnginePool, MLModel.ModelInput input) =>
+app.MapPost("/predict-wrsensor", async (PredictionEnginePool<MLModel.ModelInput, MLModel.ModelOutput> predictionEnginePool, MLModel.ModelInput input) =>
     {
         var result = predictionEnginePool.Predict(input);
         Console.WriteLine($"Predicted Road Temperature: {result.Score}");
         return await Task.FromResult(result);
 
     })
-    .WithName("Predict")
+    .WithName("Predict RoadTemperature in Weather Station_WRSensor")
     .WithOpenApi();
 // Assuming the project root is the current directory if running directly from project
 // For deployments, ensure this points to the root directory of the deployed files
 builder.Host.UseContentRoot(Directory.GetCurrentDirectory());
-app.MapGet("/evaluate-road", async () =>
+app.MapGet("/evaluate-wrsensor", async () =>
     {
         var mlContext = new MLContext();
 
@@ -94,20 +94,20 @@ app.MapGet("/evaluate-road", async () =>
         // Return the R-squared value in the response
         return Results.Ok(new { RSquared = rSquared });
     })
-    .WithName("EvaluateModel")
+    .WithName("EvaluateModel for RoadTemperature in Weather Station_WRSensor")
     .WithOpenApi();
 // Define prediction route & handler
-app.MapPost("/predict-wrsensor",
+app.MapPost("/predict-wsensor",
     async (PredictionEnginePool<WeatherStationWSenseMLModel.ModelInput, WeatherStationWSenseMLModel.ModelOutput> predictionEnginePool, WeatherStationWSenseMLModel.ModelInput input) =>
     {
         var result = predictionEnginePool.Predict(input);
         Console.WriteLine($"Predicted Road Temperature: {result.Score}");
         return await Task.FromResult(result);
     })
-    .WithName("Predict WeatherStation_WSense")
+    .WithName("Predict RoadTemerature in Weather Station_WSensor")
     .WithOpenApi();
 
-app.MapGet("/evaluate-wrsensor", async () =>
+app.MapGet("/evaluate-wsensor", async () =>
     {
         var mlContext = new MLContext();
 
@@ -123,7 +123,7 @@ app.MapGet("/evaluate-wrsensor", async () =>
         // Return the R-squared value in the response
         return Results.Ok(new { RSquared = rSquared });
     })
-    .WithName("EvaluateModel wrsensor")
+    .WithName("EvaluateModel for RoadTemperature in Weather Station_WSensor")
     .WithOpenApi();
 
 // Waterlevel Prediction Endpoint
@@ -133,7 +133,7 @@ app.MapPost("/predict-water", async (PredictionEnginePool<WaterLevelMLModel.Mode
         Console.WriteLine($"Predicted Water Level Score: {result.Score}");
         return await Task.FromResult(result);
     })
-    .WithName("Predict Water Level")
+    .WithName("Predict waterLevel in Water level sensor")
     .WithOpenApi();
 
 // Endpoint to evaluate the model
@@ -154,7 +154,7 @@ app.MapGet("/evaluate-water", async () =>
         // Return the R-squared value
         return Results.Ok(new { RSquared = rSquared });
     })
-    .WithName("EvaluateWater")
+    .WithName("EvaluateWater for waterLevel in Water level sensor")
     .WithOpenApi();
 // Apply CORS policy
 // Use CORS policy
