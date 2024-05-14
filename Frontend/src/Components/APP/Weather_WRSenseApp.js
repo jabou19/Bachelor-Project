@@ -1,41 +1,31 @@
-/*
-// Weather_WRSenseApp.js
-import React, { useState } from 'react';
 
-import Weather_WRSensePrediction from "../Prediction/Weather_WRSensePrediction";
-import WeatherStation_WRSense from "../Devices/WeatherStation_WRSense";
-
-
-function Weather_WRSenseApp() {
-    const [weatherData, setWeatherData] = useState([]);
-
-    return (
-        <div>
-            <WeatherStation_WRSense setWeatherData={setWeatherData} />
-            <Weather_WRSensePrediction weatherData={weatherData} />
-        </div>
-    );
-}
-
-export default Weather_WRSenseApp;
-*/
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import WeatherStation_WRSense from "../Devices/WeatherStation_WRSense";
 import Weather_WRSensePrediction from "../Prediction/Weather_WRSensePrediction";
 
+class Weather_WRSenseApp extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            sensorData: []
+        };
+    }
 
-function Weather_WRSenseApp() {
-    const [weatherData, setWeatherData] = useState([]);
+    setSensorData = (data) => {
+        this.setState({ sensorData: data });
+    }
 
-    // Get the last entry's road temperature, if available
-    const actualTemperature = weatherData.length > 0 ? weatherData[weatherData.length - 1].RoadTemperature : 0;
+    render() {
+        const { sensorData } = this.state;
+        const actualValue = sensorData.length > 0 ? sensorData[sensorData.length - 1].RoadTemperature : 0;
 
-    return (
-        <div>
-            <WeatherStation_WRSense setWeatherData={setWeatherData} />
-            <Weather_WRSensePrediction weatherData={weatherData} actualTemperature={actualTemperature} />
-        </div>
-    );
+        return (
+            <div>
+                <WeatherStation_WRSense setSensorData={this.setSensorData} />
+                <Weather_WRSensePrediction sensorData={sensorData} actualValue={actualValue} rSquaredUrl="http://localhost:5000/evaluate-wrsensor" predictUrl="http://localhost:5000/predict-wrsensor" />
+            </div>
+        );
+    }
 }
 
 export default Weather_WRSenseApp;

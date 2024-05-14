@@ -1,19 +1,31 @@
-import React, {useState} from "react";
+
+import React, { Component } from 'react';
 import WeatherStation_WSense from "../Devices/WeatherStation_WSense";
 import Weather_WSensePrediction from "../Prediction/Weather_WSensePrediction";
 
-function Weather_WSenseApp() {
-    const [weatherData, setWeatherData] = useState([]);
+class Weather_WSenseApp extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            sensorData: []
+        };
+    }
 
-    // Get the last entry's road temperature, if available
-    const actualTemperature = weatherData.length > 0 ? weatherData[weatherData.length - 1].RoadTemperature : 0;
+    setSensorData = (data) => {
+        this.setState({ sensorData: data });
+    }
 
-    return (
-        <div>
-            <WeatherStation_WSense setWeatherData={setWeatherData} />
-            <Weather_WSensePrediction weatherData={weatherData} actualTemperature={actualTemperature} />
-        </div>
-    );
+    render() {
+        const { sensorData } = this.state;
+        const actualValue = sensorData.length > 0 ? sensorData[sensorData.length - 1].RoadTemperature : 0;
+
+        return (
+            <div>
+                <WeatherStation_WSense setSensorData={this.setSensorData} />
+                <Weather_WSensePrediction sensorData={sensorData} actualValue={actualValue} rSquaredUrl="http://localhost:5000/evaluate-wsensor" predictUrl="http://localhost:5000/predict-wsensor" />
+            </div>
+        );
+    }
 }
 
 export default Weather_WSenseApp;

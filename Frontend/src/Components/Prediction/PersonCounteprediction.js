@@ -14,14 +14,14 @@ function PersonCounteprediction({PersonCounterData,actualPersonCounter}){
     const [rSquared, setRSquared] = useState(null);
     const prevPrediction = useRef();
 
-    const fetchRSquared = async () => {
+    async function fetchRSquared (){
         try {
             const response = await axios.get('http://localhost:5000/evaluate-model');
             setRSquared(response.data.rSquared);
         } catch (error) {
             console.error('Error fetching R-squared:', error);
         }
-    };
+    }
 
     useEffect(() => {
         fetchRSquared();
@@ -43,25 +43,25 @@ function PersonCounteprediction({PersonCounterData,actualPersonCounter}){
         }
     }, [PersonCounterData]);
 
-    const predictWeather = async (data) => {
+    async function predictWeather  (data){
         const apiUrl = 'http://localhost:5000/predict';
         try {
             const response = await axios.post(apiUrl, data, {
                 headers: { 'Content-Type': 'application/json' }
             });
             setPrediction(response.data);
-            calculateDifference(response.data.score, actualPersonCounter);
+            DetectErrorsViaPrediction(response.data.score, actualPersonCounter);
             prevPrediction.current = response.data;
         } catch (error) {
             console.error('Error making prediction:', error);
         }
-    };
+    }
 
-    const calculateDifference = (predicted, actual) => {
+    function DetectErrorsViaPrediction (predicted, actual){
         const difference = Math.abs(predicted - actual);
         setTemperatureDifference(difference.toFixed(2));
         setResult(difference > 0.5 ? 'Error' : 'Correct');
-    };
+    }
 
     // Style for the result based on whether it is correct or an error
     const resultStyle = {

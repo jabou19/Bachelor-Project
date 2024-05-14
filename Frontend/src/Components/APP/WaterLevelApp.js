@@ -1,22 +1,31 @@
-import React, {useState} from "react";
-import Weather_WRSensePrediction from "../Prediction/Weather_WRSensePrediction";
+
+import React, { Component } from 'react';
 import WaterLevel from "../Devices/WaterLevel";
 import WaterLevelPrediction from "../Prediction/WaterLevelPrediction";
 
-function WaterLevelApp()
-{
+class WaterLevelApp extends Component {
+        constructor(props) {
+                super(props);
+                this.state = {
+                        sensorData: []
+                };
+        }
 
-        const [waterData, setWaterData] = useState([]);
+        setSensorData = (data) => {
+                this.setState({ sensorData: data });
+        }
 
-        // Get the last entry's road temperature, if available
-        const actualWaterLevel = waterData.length > 0 ? waterData[waterData.length - 1].WaterLevel : 0;
+        render() {
+                const { sensorData } = this.state;
+                const actualValue = sensorData.length > 0 ? sensorData[sensorData.length - 1].WaterLevel : 0;
 
-        return (
-            <div>
-                <WaterLevel setWaterData={setWaterData} />
-                <WaterLevelPrediction waterData={waterData} actualWaterLevel={actualWaterLevel} />
-            </div>
-        );
-
+                return (
+                    <div>
+                            <WaterLevel setSensorData={this.setSensorData} />
+                            <WaterLevelPrediction sensorData={sensorData} actualValue={actualValue} rSquaredUrl="http://localhost:5000/evaluate-water" predictUrl="http://localhost:5000/predict-water" />
+                    </div>
+                );
+        }
 }
+
 export default WaterLevelApp;

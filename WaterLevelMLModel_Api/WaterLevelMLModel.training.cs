@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.ML.Data;
 using Microsoft.ML.Trainers.FastTree;
-using Microsoft.ML.Trainers;
 using Microsoft.ML;
 
 namespace WaterLevelMLModel_Api

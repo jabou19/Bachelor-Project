@@ -34,7 +34,7 @@ public class Publisher
         await _client.ConnectAsync(_options, CancellationToken.None);
 
         // Setup the timer to trigger every 3 seconds
-        _timer = new System.Timers.Timer(1000);
+        _timer = new System.Timers.Timer(700);
         _timer.Elapsed += async (sender, args) => await Publish();
         _timer.Enabled = true;
     }

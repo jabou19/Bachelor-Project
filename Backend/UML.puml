@@ -1,0 +1,64 @@
+@startuml
+'https://plantuml.com/class-diagram
+@startuml
+
+
+' Define namespaces for organization
+namespace Backend.Backend.Services_layer {
+    interface Devices {
+        +double? BatteryLevel
+        +DateTime? Time
+        +DateTime? CreatedAt
+        +String FilePath
+        +int CurrentIndex
+        +void ReadingData()
+    }
+    
+    class PersonCounter {
+        +int PersonCount
+        +void ReadingData()
+    }
+    
+    class WaterLevel_USense {
+        +double Distance
+        +double WaterLevel
+        +void ReadingData()
+    }
+    
+    class WeatherStation_WRSense {
+        +double RoadTemperature
+        +double AirTemperature
+        +double AirHumidity
+        +double Precipitation
+        +void ReadingData()
+    }
+}
+
+namespace Backend.Backend.Communication_Layer {
+    class Publisher {
+        +async Task Connect()
+        +async Task Publish()
+        +async Task StopAsync()
+    }
+}
+
+namespace Backend {
+    class Program {
+        +void Main()
+    }
+}
+
+' Relationships
+PersonCounter -up-|> Devices
+WaterLevel_USense -up-|> Devices
+WeatherStation_WRSense -up-|> Devices
+
+Publisher ..> Devices : uses >
+
+' Application startup
+Program ..> Publisher : starts >
+Program ..> Backend.Backend.Services_layer.Devices : configures >
+
+@enduml
+
+
