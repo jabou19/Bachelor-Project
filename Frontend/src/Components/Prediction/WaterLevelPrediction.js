@@ -6,7 +6,7 @@ import BaseSensorComponent from "../BaseComponents/BaseSensorComponent";
 
 class WaterLevelPrediction extends BaseSensorComponent {
     render() {
-        const { latestData, prediction, temperatureDifference, result, rSquared } = this.state;
+        const { latestData, prediction, temperatureDifference: Difference, result, rSquared } = this.state;
         const { actualValue } = this.props;
 
         const resultStyle = {
@@ -41,7 +41,7 @@ class WaterLevelPrediction extends BaseSensorComponent {
                             <p>Predicted Water Level: {prediction.score} (m)</p>
                             <p>Actual Water Level: {actualValue.toFixed(2)} (m)</p>
                             <p>Difference Between Predicted and Actual Water Level:  </p>
-                            <p style={resultStyle}>{temperatureDifference} (m) - {result}</p>
+                            <p style={resultStyle}>{Difference} (m) - {result}</p>
                         </div>
                     )}
                 </div>

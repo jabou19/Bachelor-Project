@@ -4,10 +4,10 @@ import Home from "./Components/Home";
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from "./Components/Navbar";
-import Weather_WRSenseApp from "./Components/APP/Weather_WRSenseApp";
-import WaterLevelApp from "./Components/APP/WaterLevelApp";
-import PersonCounterAPP from "./Components/APP/PersonCounterAPP";
-import Weather_WSenseApp from "./Components/APP/Weather_WSenseAPP";
+import Weather_WRSenseApp from "./Components/APPDevices/Weather_WRSenseApp";
+import WaterLevelApp from "./Components/APPDevices/WaterLevelApp";
+import PersonCounterAPP from "./Components/APPDevices/PersonCounterAPP";
+import Weather_WSenseApp from "./Components/APPDevices/Weather_WSenseAPP";
 function App() {
   return (
       <Router>

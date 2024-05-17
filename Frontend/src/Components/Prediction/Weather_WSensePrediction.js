@@ -6,7 +6,7 @@ import BaseSensorComponent from "../BaseComponents/BaseSensorComponent";
 
 class Weather_WSensePrediction extends BaseSensorComponent {
     render() {
-        const { latestData, prediction, temperatureDifference, result, rSquared } = this.state;
+        const { latestData, prediction, temperatureDifference: Difference, result, rSquared } = this.state;
         const { actualValue } = this.props;
 
         const resultStyle = {
@@ -43,7 +43,7 @@ class Weather_WSensePrediction extends BaseSensorComponent {
                             <p>Predicted Road Temperature: {prediction.score.toFixed(3)}°C</p>
                             <p>Actual Road Temperature: {actualValue.toFixed(2)}°C</p>
                             <p>Difference Between Predicted and Actual Road Temperature:  </p>
-                            <p style={resultStyle}>{temperatureDifference}°C - {result}</p>
+                            <p style={resultStyle}>{Difference}°C - {result}</p>
                         </div>
                     )}
                 </div>
