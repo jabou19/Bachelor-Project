@@ -10,9 +10,9 @@
     "ColumnProperties": [
       {
         "ColumnName": "networkId",
-        "ColumnPurpose": "Ignore",
+        "ColumnPurpose": "Feature",
         "ColumnDataFormat": "String",
-        "IsCategorical": true,
+        "IsCategorical": false,
         "Type": "Column",
         "Version": 4
       },
@@ -20,7 +20,7 @@
         "ColumnName": "distance",
         "ColumnPurpose": "Feature",
         "ColumnDataFormat": "Single",
-        "IsCategorical": true,
+        "IsCategorical": false,
         "Type": "Column",
         "Version": 4
       },
@@ -28,7 +28,7 @@
         "ColumnName": "waterLevel",
         "ColumnPurpose": "Label",
         "ColumnDataFormat": "Single",
-        "IsCategorical": true,
+        "IsCategorical": false,
         "Type": "Column",
         "Version": 4
       },
@@ -102,10 +102,10 @@
         "Version": 1,
         "Type": "Trial",
         "TrainerName": "FastForestRegression",
-        "Score": 0.977559700636101,
-        "RuntimeInSeconds": 1.683,
+        "Score": 0.97728995924367479,
+        "RuntimeInSeconds": 5.326,
         "Parameter": {
-          "_SCHEMA_": "e0 * e1 * e2 * e3 * e5",
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4 * e6",
           "e0": {
             "OutputColumnNames": [
               "distance",
@@ -117,30 +117,35 @@
             ]
           },
           "e1": {
+            "InputColumnName": "networkId",
+            "OutputColumnName": "networkId"
+          },
+          "e2": {
             "InputColumnName": "time",
             "OutputColumnName": "time"
           },
-          "e2": {
+          "e3": {
             "InputColumnName": "createdAt",
             "OutputColumnName": "createdAt"
           },
-          "e3": {
+          "e4": {
             "InputColumnNames": [
               "distance",
               "batteryLevel",
+              "networkId",
               "time",
               "createdAt"
             ],
             "OutputColumnName": "Features"
           },
-          "e5": {
+          "e6": {
             "NumberOfTrees": 4,
             "NumberOfLeaves": 4,
             "FeatureFraction": 1.0,
             "LabelColumnName": "waterLevel",
             "FeatureColumnName": "Features"
           },
-          "e4": {
+          "e5": {
             "NumberOfLeaves": 4,
             "MinimumExampleCountPerLeaf": 20,
             "NumberOfTrees": 4,
@@ -150,7 +155,7 @@
             "LabelColumnName": "waterLevel",
             "FeatureColumnName": "Features"
           },
-          "e6": {
+          "e7": {
             "NumberOfLeaves": 4,
             "MinimumExampleCountPerLeaf": 20,
             "LearningRate": 1.0,
@@ -163,92 +168,13 @@
             "LabelColumnName": "waterLevel",
             "FeatureColumnName": "Features"
           },
-          "e7": {
-            "L1Regularization": 1.0,
-            "L2Regularization": 1.0,
-            "LabelColumnName": "waterLevel",
-            "FeatureColumnName": "Features"
-          },
           "e8": {
             "L1Regularization": 1.0,
-            "L2Regularization": 0.1,
-            "LabelColumnName": "waterLevel",
-            "FeatureColumnName": "Features"
-          }
-        }
-      },
-      {
-        "Version": 1,
-        "Type": "Trial",
-        "TrainerName": "LightGbmRegression",
-        "Score": 0.90242987686448828,
-        "RuntimeInSeconds": 1.647,
-        "Parameter": {
-          "_SCHEMA_": "e0 * e1 * e2 * e3 * e6",
-          "e0": {
-            "OutputColumnNames": [
-              "distance",
-              "batteryLevel"
-            ],
-            "InputColumnNames": [
-              "distance",
-              "batteryLevel"
-            ]
-          },
-          "e1": {
-            "InputColumnName": "time",
-            "OutputColumnName": "time"
-          },
-          "e2": {
-            "InputColumnName": "createdAt",
-            "OutputColumnName": "createdAt"
-          },
-          "e3": {
-            "InputColumnNames": [
-              "distance",
-              "batteryLevel",
-              "time",
-              "createdAt"
-            ],
-            "OutputColumnName": "Features"
-          },
-          "e6": {
-            "NumberOfLeaves": 4,
-            "MinimumExampleCountPerLeaf": 20,
-            "LearningRate": 1.0,
-            "NumberOfTrees": 4,
-            "SubsampleFraction": 1.0,
-            "MaximumBinCountPerFeature": 254,
-            "FeatureFraction": 1.0,
-            "L1Regularization": 2E-10,
             "L2Regularization": 1.0,
             "LabelColumnName": "waterLevel",
             "FeatureColumnName": "Features"
           },
-          "e4": {
-            "NumberOfLeaves": 4,
-            "MinimumExampleCountPerLeaf": 20,
-            "NumberOfTrees": 4,
-            "MaximumBinCountPerFeature": 255,
-            "FeatureFraction": 1.0,
-            "LearningRate": 0.099999999999999978,
-            "LabelColumnName": "waterLevel",
-            "FeatureColumnName": "Features"
-          },
-          "e5": {
-            "NumberOfTrees": 4,
-            "NumberOfLeaves": 4,
-            "FeatureFraction": 1.0,
-            "LabelColumnName": "waterLevel",
-            "FeatureColumnName": "Features"
-          },
-          "e7": {
-            "L1Regularization": 1.0,
-            "L2Regularization": 1.0,
-            "LabelColumnName": "waterLevel",
-            "FeatureColumnName": "Features"
-          },
-          "e8": {
+          "e9": {
             "L1Regularization": 1.0,
             "L2Regularization": 0.1,
             "LabelColumnName": "waterLevel",
@@ -261,14 +187,15 @@
       "e0": "ReplaceMissingValues",
       "e1": "FeaturizeText",
       "e2": "FeaturizeText",
-      "e3": "Concatenate",
-      "e4": "FastTreeRegression",
-      "e5": "FastForestRegression",
-      "e6": "LightGbmRegression",
-      "e7": "LbfgsPoissonRegressionRegression",
-      "e8": "SdcaRegression"
+      "e3": "FeaturizeText",
+      "e4": "Concatenate",
+      "e5": "FastTreeRegression",
+      "e6": "FastForestRegression",
+      "e7": "LightGbmRegression",
+      "e8": "LbfgsPoissonRegressionRegression",
+      "e9": "SdcaRegression"
     },
-    "Schema": "e0 * e1 * e2 * e3 * (e4 + e5 + e6 + e7 + e8)",
+    "Schema": "e0 * e1 * e2 * e3 * e4 * (e5 + e6 + e7 + e8 + e9)",
     "MetricName": "RSquared",
     "ModelFilePath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\Backend\\WaterLevelMLModel.mlnet"
   },
@@ -281,8 +208,8 @@
     "LabelColumn": "waterLevel",
     "ValidationOption": {
       "Version": 0,
-      "Type": "TrainValidateSplitValidationOption",
-      "SplitRatio": 0.2
+      "Type": "CrossValidationValidationOption",
+      "NumberOfFolds": 5
     }
   }
 }

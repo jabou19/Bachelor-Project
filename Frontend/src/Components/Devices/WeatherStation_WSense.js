@@ -81,7 +81,6 @@ class WeatherStation_WSense extends BaseSensorComponent {
                             <th>Road Temperature (°C)</th>
                             <th>Air Temperature (°C)</th>
                             <th>Air Humidity (%)</th>
-                            <th>Precipitation (mm)</th>
                             <th>Battery Level (V)</th>
                             <th>Time</th>
                             <th>Created At</th>
@@ -92,7 +91,6 @@ class WeatherStation_WSense extends BaseSensorComponent {
                             <td>{latestData.RoadTemperature.toFixed(2)}</td>
                             <td>{latestData.AirTemperature.toFixed(2)}</td>
                             <td>{latestData.AirHumidity.toFixed(2)}</td>
-                            <td>{latestData.Precipitation}</td>
                             <td>{latestData.BatteryLevel.toFixed(2)}</td>
                             <td>{new Date(latestData.Time).toLocaleString()}</td>
                             <td>{new Date(latestData.CreatedAt).toLocaleString()}</td>

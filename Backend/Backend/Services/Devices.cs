@@ -1,4 +1,4 @@
-﻿namespace Backend.Backend.Services_layer;
+﻿namespace Backend.Backend.Services;
 
 public interface Devices
 {

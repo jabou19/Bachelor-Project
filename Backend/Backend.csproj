@@ -25,11 +25,6 @@
   <ItemGroup>
     <Content Remove="Files\HistoricalData_JSONFiles\WaterLevel\cleaned_water-level.json" />
   </ItemGroup>
-  <ItemGroup Label="WaterLevelMLModel">
-    <None Include="WaterLevelMLModel.mlnet">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
   <ItemGroup Label="WeatherStationWSenseMLModel">
     <None Include="WeatherStationWSenseMLModel.mlnet">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -37,6 +32,11 @@
   </ItemGroup>
   <ItemGroup Label="PersonCounterMLModel">
     <None Include="PersonCounterMLModel.mlnet">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup Label="WaterLevelMLModel">
+    <None Include="WaterLevelMLModel.mlnet">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

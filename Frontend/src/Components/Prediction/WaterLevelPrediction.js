@@ -30,7 +30,7 @@ class WaterLevelPrediction extends BaseSensorComponent {
                     <h2>Try your model</h2>
                     <form>
                         <label style={styles.label}>Distance (m):</label>
-                        <input style={styles.input} type="text" readOnly value={latestData ? latestData.Distance.toFixed(2) : ''} />>
+                        <input style={styles.input} type="text" readOnly value={latestData ? latestData.Distance.toFixed(2) : ''} />
                         <label style={styles.label}>Battery Level (V):</label>
                         <input style={styles.input} type="text" readOnly value={latestData ? latestData.BatteryLevel.toFixed(2) : ''} />
                         <label style={styles.label}>Time:</label>
@@ -43,7 +43,7 @@ class WaterLevelPrediction extends BaseSensorComponent {
                     {prediction && (
                         <div>
                             <h3>Prediction Results:</h3>
-                            <p>Predicted Water Level: {prediction.score.toFixed(2)} (m)</p>
+                            <p>Predicted Water Level: {prediction.score.toFixed(4)} (m)</p>
                             <p>Actual Water Level: {actualValue.toFixed(2)} (m)</p>
                             <h4>Detect Errors via difference between Predicted and Actual Water Level:  </h4>
                             <p>If difference between Predicted and Actual Water Level is more than <span style={{ color: 'blue', fontWeight: 'bold', fontSize: 15 }}>{threshold}</span> ,so it is Error. Otherwise, it is Correct:</p>

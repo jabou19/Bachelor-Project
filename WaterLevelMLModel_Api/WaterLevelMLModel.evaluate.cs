@@ -53,7 +53,7 @@ namespace WaterLevelMLModel_Api
 
             return featurePFI;
         }
-        public static double CalculateRSquaredOnTrainingDataWater(MLContext mlContext, ITransformer model, IDataView trainingData)
+        public static double CalculateRSquaredOnTrainingDataWaterLevel(MLContext mlContext, ITransformer model, IDataView trainingData)
         {
             // Use the model to make predictions on the training data
             IDataView predictions = model.Transform(trainingData);

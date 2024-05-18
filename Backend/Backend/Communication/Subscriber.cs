@@ -1,4 +1,4 @@
-﻿namespace Backend.Backend.Communication_Layer;
+﻿namespace Backend.Backend.Communication;
 
 using MQTTnet;
 using MQTTnet.Client;

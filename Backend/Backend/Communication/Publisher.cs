@@ -1,6 +1,6 @@
-﻿using Backend.Backend.Services_layer;
+﻿using Backend.Backend.Services;
 
-namespace Backend.Backend.Communication_Layer;
+namespace Backend.Backend.Communication;
 
 using MQTTnet;
 using MQTTnet.Client;

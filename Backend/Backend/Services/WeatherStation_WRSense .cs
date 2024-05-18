@@ -1,19 +1,27 @@
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 
-namespace Backend.Backend.Services_layer;
+namespace Backend.Backend.Services;
 
-public class WaterLevel_USense:Devices
-{
-    public double Distance { get; set; }
-    public double WaterLevel { get; set; }
+public class WeatherStation_WRSense:Devices 
+{ 
+    public double RoadTemperature { get; set; }
+    public double AirTemperature { get; set; }
+    public double AirHumidity { get; set; }
+    public double Precipitation { get; set; }
     public double? BatteryLevel { get;  set; }
     public DateTime? Time { get;  set; }
     public DateTime? CreatedAt { get; set; }
-    public string FilePath { get;  } = "Files/HistoricalData_JSONFiles/WaterLevel/cleaned-water-level.json";
+    public string FilePath { get;  }= "Files/HistoricalData_JSONFiles/WeatherStations/cleaned_wrsense-timestamp.json";
     public int CurrentIndex { get; private set; }= 0; // Field to keep track of the current index
+
+    public WeatherStation_WRSense()
+    {
+        
+        ReadingData();
+    }
+  
     public void ReadingData()
     {
-
         var fullFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, FilePath);
         if (!File.Exists(fullFilePath))
         {
@@ -30,13 +38,15 @@ public class WaterLevel_USense:Devices
         {
             throw new Exception("JSON array is empty.");
         }
+
         JObject item = jsonArray[CurrentIndex] as JObject;
-        Distance = item["distance"]?.Value<double>() ?? Distance;
-        WaterLevel = item["waterLevel"]?.Value<double>() ?? WaterLevel;
+        RoadTemperature = item["roadTemperature"]?.Value<double>() ?? RoadTemperature;
+        AirTemperature = item["airTemperature"]?.Value<double>() ?? AirTemperature;
+        AirHumidity = item["airHumidity"]?.Value<double>() ?? AirHumidity;
+         Precipitation= item["precipitation"]?.Value<double>() ?? Precipitation;
         BatteryLevel = item["batteryLevel"]?.Value<double>() ?? BatteryLevel;
         Time = item["time"]?.Value<DateTime>() ?? DateTime.MinValue;
         CreatedAt = item["createdAt"]?.Value<DateTime>() ?? DateTime.MinValue;
         CurrentIndex = (CurrentIndex + 1) % jsonArray.Count; // Increment and wrap the index
     }
 }
-

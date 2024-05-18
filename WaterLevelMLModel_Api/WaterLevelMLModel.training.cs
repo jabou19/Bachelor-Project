@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.ML.Data;
 using Microsoft.ML.Trainers.FastTree;
+using Microsoft.ML.Trainers;
 using Microsoft.ML;
 
 namespace WaterLevelMLModel_Api
@@ -101,11 +102,13 @@ namespace WaterLevelMLModel_Api
                     new InputOutputColumnPair(@"distance", @"distance"),
                     new InputOutputColumnPair(@"batteryLevel", @"batteryLevel")
                 })
+                .Append(mlContext.Transforms.Text.FeaturizeText(inputColumnName: @"networkId",
+                    outputColumnName: @"networkId"))
                 .Append(mlContext.Transforms.Text.FeaturizeText(inputColumnName: @"time", outputColumnName: @"time"))
                 .Append(mlContext.Transforms.Text.FeaturizeText(inputColumnName: @"createdAt",
                     outputColumnName: @"createdAt"))
                 .Append(mlContext.Transforms.Concatenate(@"Features",
-                    new[] { @"distance", @"batteryLevel", @"time", @"createdAt" }))
+                    new[] { @"distance", @"batteryLevel", @"networkId", @"time", @"createdAt" }))
                 .Append(mlContext.Regression.Trainers.FastForest(new FastForestRegressionTrainer.Options()
                 {
                     NumberOfTrees = 4, NumberOfLeaves = 4, FeatureFraction = 1F, LabelColumnName = @"waterLevel",

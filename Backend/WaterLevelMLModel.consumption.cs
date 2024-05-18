@@ -5,18 +5,14 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Collections.Generic;
-
-namespace WaterLevelMLModel_Api
+namespace Backend
 {
-
     public partial class WaterLevelMLModel
     {
         /// <summary>
         /// model input class for WaterLevelMLModel.
         /// </summary>
-
         #region model input class
-
         public class ModelInput
         {
             [LoadColumn(0)]
@@ -35,7 +31,9 @@ namespace WaterLevelMLModel_Api
             [ColumnName(@"batteryLevel")]
             public float BatteryLevel { get; set; }
 
-            [LoadColumn(8)] [ColumnName(@"time")] public string Time { get; set; }
+            [LoadColumn(8)]
+            [ColumnName(@"time")]
+            public string Time { get; set; }
 
             [LoadColumn(9)]
             [ColumnName(@"createdAt")]
@@ -48,26 +46,32 @@ namespace WaterLevelMLModel_Api
         /// <summary>
         /// model output class for WaterLevelMLModel.
         /// </summary>
-
         #region model output class
-
         public class ModelOutput
         {
-            [ColumnName(@"networkId")] public float[] NetworkId { get; set; }
+            [ColumnName(@"networkId")]
+            public float[] NetworkId { get; set; }
 
-            [ColumnName(@"distance")] public float Distance { get; set; }
+            [ColumnName(@"distance")]
+            public float Distance { get; set; }
 
-            [ColumnName(@"waterLevel")] public float WaterLevel { get; set; }
+            [ColumnName(@"waterLevel")]
+            public float WaterLevel { get; set; }
 
-            [ColumnName(@"batteryLevel")] public float BatteryLevel { get; set; }
+            [ColumnName(@"batteryLevel")]
+            public float BatteryLevel { get; set; }
 
-            [ColumnName(@"time")] public float[] Time { get; set; }
+            [ColumnName(@"time")]
+            public float[] Time { get; set; }
 
-            [ColumnName(@"createdAt")] public float[] CreatedAt { get; set; }
+            [ColumnName(@"createdAt")]
+            public float[] CreatedAt { get; set; }
 
-            [ColumnName(@"Features")] public float[] Features { get; set; }
+            [ColumnName(@"Features")]
+            public float[] Features { get; set; }
 
-            [ColumnName(@"Score")] public float Score { get; set; }
+            [ColumnName(@"Score")]
+            public float Score { get; set; }
 
         }
 
@@ -75,8 +79,7 @@ namespace WaterLevelMLModel_Api
 
         private static string MLNetModelPath = Path.GetFullPath("WaterLevelMLModel.mlnet");
 
-        public static readonly Lazy<PredictionEngine<ModelInput, ModelOutput>> PredictEngine =
-            new Lazy<PredictionEngine<ModelInput, ModelOutput>>(() => CreatePredictEngine(), true);
+        public static readonly Lazy<PredictionEngine<ModelInput, ModelOutput>> PredictEngine = new Lazy<PredictionEngine<ModelInput, ModelOutput>>(() => CreatePredictEngine(), true);
 
 
         private static PredictionEngine<ModelInput, ModelOutput> CreatePredictEngine()

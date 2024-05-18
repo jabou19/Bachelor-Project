@@ -32,8 +32,6 @@ class Weather_WSensePrediction extends BaseSensorComponent {
                         <input style={styles.input} type="text" readOnly value={latestData ? latestData.AirTemperature.toFixed(2) : ''} />
                         <label style={styles.label}>Air Humidity (%):</label>
                         <input style={styles.input} type="text" readOnly value={latestData ? latestData.AirHumidity.toFixed(2) : ''} />
-                        <label style={styles.label}>Precipitation (mm):</label>
-                        <input style={styles.input} type="text" readOnly value={latestData ? latestData.Precipitation : ''} />
                         <label style={styles.label}>Time:</label>
                         <input style={styles.input} type="text" readOnly value={latestData ? new Date(latestData.Time).toISOString().slice(0, 19).replace('T', ' ') : ''} />
                         <label style={styles.label}>Created At:</label>

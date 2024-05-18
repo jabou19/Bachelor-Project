@@ -1,7 +1,7 @@
 
 using Microsoft.Extensions.ML;
 using Microsoft.OpenApi.Models;
-using Backend.Backend.Communication_Layer;
+using Backend.Backend.Communication;
 using Microsoft.ML;
 using PersonCounterMLModel_Api;
 using WaterLevelMLModel_Api;
@@ -150,7 +150,7 @@ app.MapGet("/evaluate-water", async () =>
         ITransformer model = mlContext.Model.Load(modelPath, out var schema);
 
         // Calculate R-squared on the training data
-        double rSquared = WaterLevelMLModel.CalculateRSquaredOnTrainingDataWater(mlContext, model, trainingData);
+        double rSquared = WaterLevelMLModel.CalculateRSquaredOnTrainingDataWaterLevel(mlContext, model, trainingData);
         Console.WriteLine($"R-squared on training data for Water Level: {rSquared}");
 
         // Return the R-squared value
