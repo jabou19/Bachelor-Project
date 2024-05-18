@@ -1,18 +1,20 @@
 
 import React from 'react';
-
 import { styles } from "../Styles/Stylesheet";
 import BaseSensorComponent from "../BaseComponents/BaseSensorComponent";
 
 class WaterLevelPrediction extends BaseSensorComponent {
     render() {
-        const { latestData, prediction, temperatureDifference: Difference, result, rSquared } = this.state;
+        const { latestData, prediction, temperatureDifference, result, rSquared, correctCount, incorrectCount, totalPredictions } = this.state;
         const { actualValue } = this.props;
 
         const resultStyle = {
             fontWeight: 'bold',
             color: result === 'Correct' ? 'green' : 'red'
         };
+
+        const correctPercentage = this.getCorrectPercentage();
+        const incorrectPercentage = this.getIncorrectPercentage();
 
         return (
             <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'flex-start', padding: 20 }}>
@@ -27,7 +29,9 @@ class WaterLevelPrediction extends BaseSensorComponent {
                     <h2>Try your model</h2>
                     <form>
                         <label style={styles.label}>Distance (m):</label>
-                        <input style={styles.input} type="text" readOnly value={latestData ? latestData.Distance.toFixed(2) : ''} />
+                        <input style={styles.input} type="text" readOnly value={latestData ? latestData.Distance.toFixed(2) : ''} />>
+                        <label style={styles.label}>Battery Level (V):</label>
+                        <input style={styles.input} type="text" readOnly value={latestData ? latestData.BatteryLevel.toFixed(2) : ''} />
                         <label style={styles.label}>Time:</label>
                         <input style={styles.input} type="text" readOnly value={latestData ? new Date(latestData.Time).toISOString().slice(0, 19).replace('T', ' ') : ''} />
                         <label style={styles.label}>Created At:</label>
@@ -38,10 +42,12 @@ class WaterLevelPrediction extends BaseSensorComponent {
                     {prediction && (
                         <div>
                             <h3>Prediction Results:</h3>
-                            <p>Predicted Water Level: {prediction.score} (m)</p>
+                            <p>Predicted Water Level: {prediction.score.toFixed(2)} (m)</p>
                             <p>Actual Water Level: {actualValue.toFixed(2)} (m)</p>
                             <p>Difference Between Predicted and Actual Water Level:  </p>
-                            <p style={resultStyle}>{Difference} (m) - {result}</p>
+                            <p style={resultStyle}>{temperatureDifference} (m) - {result}</p>
+                            <p>Correct Predictions: {correctCount} ({correctPercentage}%)</p>
+                            <p>Incorrect Predictions: {incorrectCount} ({incorrectPercentage}%)</p>
                         </div>
                     )}
                 </div>

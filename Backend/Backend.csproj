@@ -17,6 +17,7 @@
     <Folder Include="Backend\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PersonCounterMLModel_Api\PersonCounterMLModel_Api.csproj" />
     <ProjectReference Include="..\WaterLevelMLModel_Api\WaterLevelMLModel_Api.csproj" />
     <ProjectReference Include="..\WeatherStationMLModel\WeatherStationMLModel.csproj" />
     <ProjectReference Include="..\WeatherStationWSenseMLModel_Api\WeatherStationWSenseMLModel_Api.csproj" />
@@ -31,6 +32,11 @@
   </ItemGroup>
   <ItemGroup Label="WeatherStationWSenseMLModel">
     <None Include="WeatherStationWSenseMLModel.mlnet">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup Label="PersonCounterMLModel">
+    <None Include="PersonCounterMLModel.mlnet">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

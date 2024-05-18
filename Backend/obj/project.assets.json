@@ -678,6 +678,25 @@
           }
         }
       },
+      "PersonCounterMLModel_Api/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.Extensions.ML": "1.5.5",
+          "Microsoft.ML": "2.0.0",
+          "Microsoft.ML.FastTree": "2.0.0",
+          "Swashbuckle.AspNetCore": "6.1.4"
+        },
+        "compile": {
+          "bin/placeholder/PersonCounterMLModel_Api.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PersonCounterMLModel_Api.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "WaterLevelMLModel_Api/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -2057,6 +2076,11 @@
         "system.threading.tasks.nuspec"
       ]
     },
+    "PersonCounterMLModel_Api/1.0.0": {
+      "type": "project",
+      "path": "../PersonCounterMLModel_Api/PersonCounterMLModel_Api.csproj",
+      "msbuildProject": "../PersonCounterMLModel_Api/PersonCounterMLModel_Api.csproj"
+    },
     "WaterLevelMLModel_Api/1.0.0": {
       "type": "project",
       "path": "../WaterLevelMLModel_Api/WaterLevelMLModel_Api.csproj",
@@ -2081,6 +2105,7 @@
       "Microsoft.ML >= 2.0.0",
       "Microsoft.ML.FastTree >= 2.0.0",
       "Newtonsoft.Json >= 13.0.3",
+      "PersonCounterMLModel_Api >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.4.0",
       "WaterLevelMLModel_Api >= 1.0.0",
       "WeatherStationMLModel >= 1.0.0",
@@ -2112,6 +2137,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+            "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\PersonCounterMLModel_Api\\PersonCounterMLModel_Api.csproj": {
+              "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\PersonCounterMLModel_Api\\PersonCounterMLModel_Api.csproj"
+            },
             "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WaterLevelMLModel_Api\\WaterLevelMLModel_Api.csproj": {
               "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WaterLevelMLModel_Api\\WaterLevelMLModel_Api.csproj"
             },

@@ -22,7 +22,14 @@ class Weather_WSenseApp extends Component {
         return (
             <div>
                 <WeatherStation_WSense setSensorData={this.setSensorData} />
-                <Weather_WSensePrediction sensorData={sensorData} actualValue={actualValue} rSquaredUrl="http://localhost:5000/evaluate-wsensor" predictUrl="http://localhost:5000/predict-wsensor" />
+                <Weather_WSensePrediction
+                    sensorData={sensorData}
+                    actualValue={actualValue}
+                    rSquaredUrl="http://localhost:5000/evaluate-wsensor"
+                    predictUrl="http://localhost:5000/predict-wsensor"
+                    differenceThreshold={0.5} // Set the threshold for Weather_WSense prediction
+                    storageKey="Weather_WSenseApp" // Key for session storage
+                />
             </div>
         );
     }

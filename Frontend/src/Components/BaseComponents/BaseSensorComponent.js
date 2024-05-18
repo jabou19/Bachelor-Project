@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import axios from 'axios';
 import { styles } from "../Styles/Stylesheet";
@@ -5,7 +6,10 @@ import { styles } from "../Styles/Stylesheet";
 class BaseSensorComponent extends Component {
     constructor(props) {
         super(props);
-        this.state = {
+
+        // Retrieve stored data or set initial state
+        const storedData = sessionStorage.getItem(this.props.storageKey);
+        const initialState = storedData ? JSON.parse(storedData) : {
             connectionStatus: 'Connecting...',
             latestData: null,
             prediction: null,
@@ -13,7 +17,12 @@ class BaseSensorComponent extends Component {
             result: '',
             rSquared: null,
             showTable: false,
+            correctCount: 0,
+            incorrectCount: 0,
+            totalPredictions: 0,
         };
+
+        this.state = initialState;
         this.prevPrediction = React.createRef();
     }
 
@@ -21,7 +30,10 @@ class BaseSensorComponent extends Component {
         this.fetchRSquared();
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps, prevState) {
+        // Save state to sessionStorage
+        sessionStorage.setItem(this.props.storageKey, JSON.stringify(this.state));
+
         if (prevProps.sensorData !== this.props.sensorData && this.props.sensorData.length > 0) {
             const latestData = this.props.sensorData[this.props.sensorData.length - 1];
             this.setState({ latestData }, () => {
@@ -69,10 +81,26 @@ class BaseSensorComponent extends Component {
 
     detectErrorsViaPrediction(predicted, actual) {
         const difference = Math.abs(predicted - actual);
-        this.setState({
+        const threshold = this.props.differenceThreshold;
+        const isCorrect = difference <= threshold;
+
+        this.setState((prevState) => ({
             temperatureDifference: difference.toFixed(2),
-            result: difference > 0.5 ? 'Error' : 'Correct',
-        });
+            result: isCorrect ? 'Correct' : 'Error',
+            totalPredictions: prevState.totalPredictions + 1,
+            correctCount: isCorrect ? prevState.correctCount + 1 : prevState.correctCount,
+            incorrectCount: isCorrect ? prevState.incorrectCount : prevState.incorrectCount + 1,
+        }));
+    }
+
+    getCorrectPercentage() {
+        const { totalPredictions, correctCount } = this.state;
+        return totalPredictions === 0 ? 0 : ((correctCount / totalPredictions) * 100).toFixed(2);
+    }
+
+    getIncorrectPercentage() {
+        const { totalPredictions, incorrectCount } = this.state;
+        return totalPredictions === 0 ? 0 : ((incorrectCount / totalPredictions) * 100).toFixed(2);
     }
 }
 
