@@ -27,7 +27,7 @@ class WaterLevelApp extends Component {
                                 actualValue={actualValue}
                                 rSquaredUrl="http://localhost:5000/evaluate-water"
                                 predictUrl="http://localhost:5000/predict-water"
-                                differenceThreshold={0.3} // Set the threshold for WaterLevel prediction
+                                differenceThreshold={0.8} // Set the threshold for WaterLevel prediction
                                 storageKey="WaterLevelApp" // Key for session storage
                             />
                     </div>

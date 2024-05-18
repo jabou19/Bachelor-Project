@@ -1,120 +1,26 @@
-/*
-import React, {useEffect, useRef, useState} from "react";
-import axios from "axios";
-import {styles} from "../Styles/Stylesheet";
-
-function PersonCounteprediction({PersonCounterData,actualPersonCounter}){
-    const [inputs, setInputs] = useState({
-        batteryLevel: '',
-        time: '',
-        createdAt: '',
-    });
-    const [prediction, setPrediction] = useState(null);
-    const [temperatureDifference, setTemperatureDifference] = useState('');
-    const [result, setResult] = useState('');
-    const [rSquared, setRSquared] = useState(null);
-    const prevPrediction = useRef();
-
-    async function fetchRSquared (){
-        try {
-            const response = await axios.get('http://localhost:5000/evaluate-model');
-            setRSquared(response.data.rSquared);
-        } catch (error) {
-            console.error('Error fetching R-squared:', error);
-        }
-    }
-
-    useEffect(() => {
-        fetchRSquared();
-    }, []);
-
-    useEffect(() => {
-        if (PersonCounterData.length > 0) {
-            const latestData = PersonCounterData[PersonCounterData.length - 1];
-            setInputs({
-                batteryLevel: latestData.BatteryLevel.toFixed(2),
-                time: new Date(latestData.Time).toISOString().slice(0, 19).replace('T', ' '),
-                createdAt: new Date(latestData.CreatedAt).toISOString().slice(0, 19).replace('T', ' ')
-            });
-            predictWeather({
-                batteryLevel: latestData.BatteryLevel,
-                time: latestData.Time,
-                createdAt: latestData.CreatedAt,
-            });
-        }
-    }, [PersonCounterData]);
-
-    async function predictWeather  (data){
-        const apiUrl = 'http://localhost:5000/predict';
-        try {
-            const response = await axios.post(apiUrl, data, {
-                headers: { 'Content-Type': 'application/json' }
-            });
-            setPrediction(response.data);
-            DetectErrorsViaPrediction(response.data.score, actualPersonCounter);
-            prevPrediction.current = response.data;
-        } catch (error) {
-            console.error('Error making prediction:', error);
-        }
-    }
-
-    function DetectErrorsViaPrediction (predicted, actual){
-        const difference = Math.abs(predicted - actual);
-        setTemperatureDifference(difference.toFixed(2));
-        setResult(difference > 0.5 ? 'Error' : 'Correct');
-    }
-
-    // Style for the result based on whether it is correct or an error
-    const resultStyle = {
-        fontWeight: 'bold',
-        color: result === 'Correct' ? 'green' : 'red'
-    };
-
-    return (
-        <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'flex-start', padding: 20 }}>
-            <div>
-                <h2>Best model:</h2>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start',marginBottom:5 }}>
-                    <strong>RSquared: {rSquared ? rSquared.toFixed(4) : 'Loading...'}</strong>
-                    <p>"R-Squared - The closer to 1.00, the better quality"</p>
-                    {'How close the actual data values are to the predicted value'}
-                    <strong>Model: </strong>{'FastForestRegression'}
-                </div>
-                <h2>Try your model</h2>
-                <form>
-                    <label style={styles.label}>BatteryLevel (V):</label>
-                    <input style={styles.input} type="text" readOnly value={inputs.batteryLevel} />
-                    <label style={styles.label}>Time:</label>
-                    <input style={styles.input} type="text" readOnly value={inputs.time} />
-                    <label style={styles.label}>Created At:</label>
-                    <input style={styles.input} type="text" readOnly value={inputs.createdAt} />
-                </form>
-            </div>
-            <div style={{ width: '50%' }}>
-                {prediction && (
-                    <div>
-                        <h3>Prediction Results:</h3>
-                        <p>Predicted Person Counter: {prediction.score.toFixed(2)} </p>
-                        <p>Actual Person Counter: {actualPersonCounter.toFixed(2)} </p>
-                        <p>Difference Between Predicted and Actual Person Counter:  </p>
-                        <p style={resultStyle}>{temperatureDifference}  - {result}</p>
-                    </div>
-                )}
-            </div>
-        </div>
-    );
-}
-export default PersonCounteprediction;
-*/
 import React from 'react';
 import { styles } from "../Styles/Stylesheet";
 import BaseSensorComponent from "../BaseComponents/BaseSensorComponent";
 
 class PersonCounterPrediction extends BaseSensorComponent {
+    detectErrorsViaPrediction(predicted, actual) {
+        const difference = Math.abs(predicted - actual);
+        const threshold = this.props.differenceThreshold;
+        const isCorrect = difference <= threshold;
+
+        this.setState((prevState) => ({
+            temperatureDifference: difference.toFixed(0),
+            result: isCorrect ? 'Correct' : 'Error',
+            totalPredictions: prevState.totalPredictions + 1,
+            correctCount: isCorrect ? prevState.correctCount + 1 : prevState.correctCount,
+            incorrectCount: isCorrect ? prevState.incorrectCount : prevState.incorrectCount + 1,
+        }));
+    }
+
     render() {
         const { latestData, prediction, temperatureDifference, result, rSquared, correctCount, incorrectCount, totalPredictions } = this.state;
         const { actualValue } = this.props;
-
+        const threshold = this.props.differenceThreshold;
         const resultStyle = {
             fontWeight: 'bold',
             color: result === 'Correct' ? 'green' : 'red'
@@ -128,7 +34,7 @@ class PersonCounterPrediction extends BaseSensorComponent {
                 <div>
                     <h2>Best model:</h2>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: 5 }}>
-                        <strong>RSquared: {rSquared ? rSquared.toFixed(4) : 'Loading...'}</strong>
+                        <strong>RSquared: {rSquared ? rSquared.toFixed(3) : 'Loading...'}</strong>
                         <p>"R-Squared - The closer to 1.00, the better quality"</p>
                         {'How close the actual data values are to the predicted value'}
                         <strong>Model: </strong>{'FastForestRegression'}
@@ -147,9 +53,10 @@ class PersonCounterPrediction extends BaseSensorComponent {
                     {prediction && (
                         <div>
                             <h3>Prediction Results:</h3>
-                            <p>Predicted Person Count: {prediction.score.toFixed(2)}</p>
-                            <p>Actual Person Count: {actualValue.toFixed(2)}</p>
-                            <p>Difference Between Predicted and Actual Person Count:  </p>
+                            <p>Predicted Person Count: {prediction.score.toFixed(0)}</p>
+                            <p>Actual Person Count: {actualValue.toFixed(0)}</p>
+                            <h4>Detect Errors via difference between Predicted and Actual Person Count:  </h4>
+                            <p>If difference between Predicted and Actual PersonCount is more than <span style={{ color: 'blue', fontWeight: 'bold', fontSize: 18 }}>{threshold}</span> person,so it is Error. Otherwise, it is Correct:</p>
                             <p style={resultStyle}>{temperatureDifference} - {result}</p>
                             <p>Correct Predictions: {correctCount} ({correctPercentage}%)</p>
                             <p>Incorrect Predictions: {incorrectCount} ({incorrectPercentage}%)</p>
