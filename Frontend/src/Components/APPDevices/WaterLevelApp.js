@@ -22,7 +22,14 @@ class WaterLevelApp extends Component {
                 return (
                     <div>
                             <WaterLevel setSensorData={this.setSensorData} />
-                            <WaterLevelPrediction sensorData={sensorData} actualValue={actualValue} rSquaredUrl="http://localhost:5000/evaluate-water" predictUrl="http://localhost:5000/predict-water" />
+                            <WaterLevelPrediction
+                                sensorData={sensorData}
+                                actualValue={actualValue}
+                                rSquaredUrl="http://localhost:5000/evaluate-water"
+                                predictUrl="http://localhost:5000/predict-water"
+                                differenceThreshold={0.3} // Set the threshold for WaterLevel prediction
+                                storageKey="WaterLevelApp" // Key for session storage
+                            />
                     </div>
                 );
         }

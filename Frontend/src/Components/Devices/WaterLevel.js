@@ -1,7 +1,6 @@
 
 import React from 'react';
 import mqtt from 'mqtt';
-
 import { styles } from "../Styles/Stylesheet";
 import BaseSensorComponent from "../BaseComponents/BaseSensorComponent";
 
@@ -12,9 +11,10 @@ class WaterLevel extends BaseSensorComponent {
         super(props);
         this.state = {
             ...this.state,
-            showTable: true, // Ensure showTable is initially true
+            showTable: false, // Ensure showTable is initially false
         };
     }
+
     componentDidMount() {
         super.componentDidMount();
         const options = {

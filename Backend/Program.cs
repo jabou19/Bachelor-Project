@@ -3,6 +3,7 @@ using Microsoft.Extensions.ML;
 using Microsoft.OpenApi.Models;
 using Backend.Backend.Communication_Layer;
 using Microsoft.ML;
+using PersonCounterMLModel_Api;
 using WaterLevelMLModel_Api;
 using WeatherStationMLModel;
 using WeatherStationWSenseMLModel_Api;
@@ -28,7 +29,8 @@ builder.Services.AddPredictionEnginePool<WaterLevelMLModel.ModelInput, WaterLeve
     .FromFile("WaterLevelMLModel.mlnet");
 builder.Services.AddPredictionEnginePool<WeatherStationWSenseMLModel.ModelInput, WeatherStationWSenseMLModel.ModelOutput>()
     .FromFile("WeatherStationWSenseMLModel.mlnet");
-
+builder.Services.AddPredictionEnginePool<PersonCounterMLModel.ModelInput, PersonCounterMLModel.ModelOutput>()
+    .FromFile("PersonCounterMLModel.mlnet");
 // Add services to the container for OpenAPI/Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -155,6 +157,37 @@ app.MapGet("/evaluate-water", async () =>
         return Results.Ok(new { RSquared = rSquared });
     })
     .WithName("EvaluateWater for waterLevel in Water level sensor")
+    .WithOpenApi();
+
+// Person Counter Prediction Endpoint
+app.MapPost("/predict-person", async (PredictionEnginePool<PersonCounterMLModel.ModelInput, PersonCounterMLModel.ModelOutput> predictionEnginePool, PersonCounterMLModel.ModelInput input) =>
+    {
+        var result = predictionEnginePool.Predict(input);
+        Console.WriteLine($"Predicted Person Counter Score: {result.Score}");
+        return await Task.FromResult(result);
+    })
+    .WithName("Predict PersonCounter in Person Counter sensor")
+    .WithOpenApi();
+
+// Endpoint to evaluate the model
+app.MapGet("/evaluate-person", async () =>
+    {
+        var mlContext = new MLContext();
+
+        // Load the model and training data
+        var modelPath = "PersonCounterMLModel.mlnet";
+        var trainingDataPath = "Files/CVS/peopleCounterFiltered.csv";
+        IDataView trainingData = PersonCounterMLModel.LoadIDataViewFromFile(mlContext, trainingDataPath, ',', true);
+        ITransformer model = mlContext.Model.Load(modelPath, out var schema);
+
+        // Calculate R-squared on the training data
+        double rSquared = PersonCounterMLModel.CalculateRSquaredOnTrainingDataPersonCounter(mlContext, model, trainingData);
+        Console.WriteLine($"R-squared on training data for Person Counter: {rSquared}");
+
+        // Return the R-squared value
+        return Results.Ok(new { RSquared = rSquared });
+    })
+    .WithName("EvaluateWater for PersonCounter in PersonCounter sensor")
     .WithOpenApi();
 // Apply CORS policy
 // Use CORS policy

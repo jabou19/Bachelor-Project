@@ -12,9 +12,10 @@ class WeatherStation_WRSense extends BaseSensorComponent {
         super(props);
         this.state = {
             ...this.state,
-            showTable: true, // Ensure showTable is initially true
+            showTable: false, // Ensure showTable is initially false
         };
     }
+
     componentDidMount() {
         super.componentDidMount();
         const options = {

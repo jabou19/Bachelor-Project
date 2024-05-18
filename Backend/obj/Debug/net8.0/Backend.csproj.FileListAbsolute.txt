@@ -115,3 +115,9 @@ C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backen
 C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backend\bin\Debug\net8.0\WeatherStationWSenseMLModel.mlnet
 C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backend\bin\Debug\net8.0\WeatherStationWSenseMLModel_Api.dll
 C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backend\bin\Debug\net8.0\WeatherStationWSenseMLModel_Api.pdb
+C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backend\bin\Debug\net8.0\PersonCounterMLModel_Api.deps.json
+C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backend\bin\Debug\net8.0\PersonCounterMLModel_Api.runtimeconfig.json
+C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backend\bin\Debug\net8.0\PersonCounterMLModel_Api.exe
+C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backend\bin\Debug\net8.0\PersonCounterMLModel.mlnet
+C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backend\bin\Debug\net8.0\PersonCounterMLModel_Api.dll
+C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backend\bin\Debug\net8.0\PersonCounterMLModel_Api.pdb

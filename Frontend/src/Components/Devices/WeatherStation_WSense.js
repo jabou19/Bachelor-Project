@@ -1,7 +1,6 @@
 
 import React from 'react';
 import mqtt from 'mqtt';
-
 import { styles } from "../Styles/Stylesheet";
 import BaseSensorComponent from "../BaseComponents/BaseSensorComponent";
 
@@ -12,9 +11,10 @@ class WeatherStation_WSense extends BaseSensorComponent {
         super(props);
         this.state = {
             ...this.state,
-            showTable: true, // Ensure showTable is initially true
+            showTable: false, // Ensure showTable is initially false
         };
     }
+
     componentDidMount() {
         super.componentDidMount();
         const options = {
@@ -81,6 +81,7 @@ class WeatherStation_WSense extends BaseSensorComponent {
                             <th>Road Temperature (°C)</th>
                             <th>Air Temperature (°C)</th>
                             <th>Air Humidity (%)</th>
+                            <th>Precipitation (mm)</th>
                             <th>Battery Level (V)</th>
                             <th>Time</th>
                             <th>Created At</th>
@@ -91,6 +92,7 @@ class WeatherStation_WSense extends BaseSensorComponent {
                             <td>{latestData.RoadTemperature.toFixed(2)}</td>
                             <td>{latestData.AirTemperature.toFixed(2)}</td>
                             <td>{latestData.AirHumidity.toFixed(2)}</td>
+                            <td>{latestData.Precipitation}</td>
                             <td>{latestData.BatteryLevel.toFixed(2)}</td>
                             <td>{new Date(latestData.Time).toLocaleString()}</td>
                             <td>{new Date(latestData.CreatedAt).toLocaleString()}</td>

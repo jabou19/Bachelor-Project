@@ -1,18 +1,20 @@
 
 import React from 'react';
-
 import { styles } from "../Styles/Stylesheet";
 import BaseSensorComponent from "../BaseComponents/BaseSensorComponent";
 
 class Weather_WSensePrediction extends BaseSensorComponent {
     render() {
-        const { latestData, prediction, temperatureDifference: Difference, result, rSquared } = this.state;
+        const { latestData, prediction, temperatureDifference, result, rSquared, correctCount, incorrectCount, totalPredictions } = this.state;
         const { actualValue } = this.props;
 
         const resultStyle = {
             fontWeight: 'bold',
             color: result === 'Correct' ? 'green' : 'red'
         };
+
+        const correctPercentage = this.getCorrectPercentage();
+        const incorrectPercentage = this.getIncorrectPercentage();
 
         return (
             <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'flex-start', padding: 20 }}>
@@ -30,6 +32,8 @@ class Weather_WSensePrediction extends BaseSensorComponent {
                         <input style={styles.input} type="text" readOnly value={latestData ? latestData.AirTemperature.toFixed(2) : ''} />
                         <label style={styles.label}>Air Humidity (%):</label>
                         <input style={styles.input} type="text" readOnly value={latestData ? latestData.AirHumidity.toFixed(2) : ''} />
+                        <label style={styles.label}>Precipitation (mm):</label>
+                        <input style={styles.input} type="text" readOnly value={latestData ? latestData.Precipitation : ''} />
                         <label style={styles.label}>Time:</label>
                         <input style={styles.input} type="text" readOnly value={latestData ? new Date(latestData.Time).toISOString().slice(0, 19).replace('T', ' ') : ''} />
                         <label style={styles.label}>Created At:</label>
@@ -43,7 +47,9 @@ class Weather_WSensePrediction extends BaseSensorComponent {
                             <p>Predicted Road Temperature: {prediction.score.toFixed(3)}°C</p>
                             <p>Actual Road Temperature: {actualValue.toFixed(2)}°C</p>
                             <p>Difference Between Predicted and Actual Road Temperature:  </p>
-                            <p style={resultStyle}>{Difference}°C - {result}</p>
+                            <p style={resultStyle}>{temperatureDifference}°C - {result}</p>
+                            <p>Correct Predictions: {correctCount} ({correctPercentage}%)</p>
+                            <p>Incorrect Predictions: {incorrectCount} ({incorrectPercentage}%)</p>
                         </div>
                     )}
                 </div>
