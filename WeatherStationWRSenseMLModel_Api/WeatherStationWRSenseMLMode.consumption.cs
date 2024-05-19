@@ -5,9 +5,9 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Collections.Generic;
-namespace WeatherStationMLModel
+namespace WeatherStationWRSenseMLModel_Api
 {
-    public partial class MLModel
+    public partial class WeatherStationWRSenseMLMode
     {
         /// <summary>
         /// model input class for MLModel.

@@ -5,7 +5,7 @@ using Backend.Backend.Communication;
 using Microsoft.ML;
 using PersonCounterMLModel_Api;
 using WaterLevelMLModel_Api;
-using WeatherStationMLModel;
+using WeatherStationWRSenseMLModel_Api;
 using WeatherStationWSenseMLModel_Api;
 
 
@@ -23,8 +23,8 @@ builder.Services.AddCors(options =>
 builder.Services.AddSingleton<Publisher>();
 builder.Services.AddSingleton<Subscriber>();
 // Register prediction engine
-builder.Services.AddPredictionEnginePool<MLModel.ModelInput, MLModel.ModelOutput>()
-    .FromFile("MLModel.mlnet");
+builder.Services.AddPredictionEnginePool<WeatherStationWRSenseMLMode.ModelInput, WeatherStationWRSenseMLMode.ModelOutput>()
+    .FromFile("WeatherStationWRSenseMLModel.mlnet");
 builder.Services.AddPredictionEnginePool<WaterLevelMLModel.ModelInput, WaterLevelMLModel.ModelOutput>()
     .FromFile("WaterLevelMLModel.mlnet");
 builder.Services.AddPredictionEnginePool<WeatherStationWSenseMLModel.ModelInput, WeatherStationWSenseMLModel.ModelOutput>()
@@ -68,7 +68,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapPost("/predict-wrsensor", async (PredictionEnginePool<MLModel.ModelInput, MLModel.ModelOutput> predictionEnginePool, MLModel.ModelInput input) =>
+app.MapPost("/predict-wrsensor", async (PredictionEnginePool<WeatherStationWRSenseMLMode.ModelInput, WeatherStationWRSenseMLMode.ModelOutput> predictionEnginePool, WeatherStationWRSenseMLMode.ModelInput input) =>
     {
         var result = predictionEnginePool.Predict(input);
         Console.WriteLine($"Predicted Road Temperature: {result.Score}");
@@ -86,12 +86,12 @@ app.MapGet("/evaluate-wrsensor", async () =>
 
         // Load the model and training data
         // Relative paths from the repository root
-        var modelPath = "MLModel.mlnet";
+        var modelPath = "WeatherStationWRSenseMLModel.mlnet";
         var trainingDataPath = "Files/CVS/cleaned_wrsense.csv";
-        IDataView trainingData = MLModel.LoadIDataViewFromFile(mlContext, trainingDataPath, ',', true);
+        IDataView trainingData = WeatherStationWRSenseMLMode.LoadIDataViewFromFile(mlContext, trainingDataPath, ',', true);
         ITransformer model = mlContext.Model.Load(modelPath, out var schema);
         // Calculate R-squared on the training data
-        double rSquared = MLModel.CalculateRSquaredOnTrainingData(mlContext, model, trainingData);
+        double rSquared = WeatherStationWRSenseMLMode.CalculateRSquaredOnTrainingData(mlContext, model, trainingData);
         Console.WriteLine($"R-squared on training data for Road Temperature: {rSquared}");
         // Return the R-squared value in the response
         return Results.Ok(new { RSquared = rSquared });
