@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Backend", "Backend\Backend.csproj", "{8196DC75-ECCE-473B-BBB9-6CF4E9702EF0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherStationMLModel", "WeatherStationMLModel\WeatherStationMLModel.csproj", "{7B918961-A07D-45A6-9962-D8E5EBFB8C3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherStationWRSenseMLModel_Api", "WeatherStationWRSenseMLModel_Api\WeatherStationWRSenseMLModel_Api.csproj", "{7B918961-A07D-45A6-9962-D8E5EBFB8C3B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherStationWSenseMLModel_Api", "WeatherStationWSenseMLModel_Api\WeatherStationWSenseMLModel_Api.csproj", "{530983BE-CA7D-4A89-B997-39ED4017F724}"
 EndProject

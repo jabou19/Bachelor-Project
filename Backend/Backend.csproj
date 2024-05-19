@@ -19,7 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\PersonCounterMLModel_Api\PersonCounterMLModel_Api.csproj" />
     <ProjectReference Include="..\WaterLevelMLModel_Api\WaterLevelMLModel_Api.csproj" />
-    <ProjectReference Include="..\WeatherStationMLModel\WeatherStationMLModel.csproj" />
+    <ProjectReference Include="..\WeatherStationWRSenseMLModel_Api\WeatherStationWRSenseMLModel_Api.csproj" />
     <ProjectReference Include="..\WeatherStationWSenseMLModel_Api\WeatherStationWSenseMLModel_Api.csproj" />
   </ItemGroup>
   <ItemGroup>

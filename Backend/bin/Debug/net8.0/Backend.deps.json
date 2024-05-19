@@ -17,7 +17,7 @@
           "PersonCounterMLModel_Api": "1.0.0",
           "Swashbuckle.AspNetCore": "6.4.0",
           "WaterLevelMLModel_Api": "1.0.0",
-          "WeatherStationMLModel": "1.0.0",
+          "WeatherStationWRSenseMLModel_Api": "1.0.0",
           "WeatherStationWSenseMLModel_Api": "1.0.0"
         },
         "runtime": {
@@ -379,7 +379,7 @@
           "WaterLevelMLModel_Api.dll": {}
         }
       },
-      "WeatherStationMLModel/1.0.0": {
+      "WeatherStationWRSenseMLModel_Api/1.0.0": {
         "dependencies": {
           "Microsoft.Extensions.ML": "1.5.5",
           "Microsoft.ML": "2.0.0",
@@ -387,7 +387,7 @@
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
-          "WeatherStationMLModel.dll": {}
+          "WeatherStationWRSenseMLModel_Api.dll": {}
         }
       },
       "WeatherStationWSenseMLModel_Api/1.0.0": {
@@ -685,7 +685,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "WeatherStationMLModel/1.0.0": {
+    "WeatherStationWRSenseMLModel_Api/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

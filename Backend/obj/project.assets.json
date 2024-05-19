@@ -716,7 +716,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "WeatherStationMLModel/1.0.0": {
+      "WeatherStationWRSenseMLModel_Api/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -726,10 +726,10 @@
           "Swashbuckle.AspNetCore": "6.1.4"
         },
         "compile": {
-          "bin/placeholder/WeatherStationMLModel.dll": {}
+          "bin/placeholder/WeatherStationWRSenseMLModel_Api.dll": {}
         },
         "runtime": {
-          "bin/placeholder/WeatherStationMLModel.dll": {}
+          "bin/placeholder/WeatherStationWRSenseMLModel_Api.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -2086,10 +2086,10 @@
       "path": "../WaterLevelMLModel_Api/WaterLevelMLModel_Api.csproj",
       "msbuildProject": "../WaterLevelMLModel_Api/WaterLevelMLModel_Api.csproj"
     },
-    "WeatherStationMLModel/1.0.0": {
+    "WeatherStationWRSenseMLModel_Api/1.0.0": {
       "type": "project",
-      "path": "../WeatherStationMLModel/WeatherStationMLModel.csproj",
-      "msbuildProject": "../WeatherStationMLModel/WeatherStationMLModel.csproj"
+      "path": "../WeatherStationWRSenseMLModel_Api/WeatherStationWRSenseMLModel_Api.csproj",
+      "msbuildProject": "../WeatherStationWRSenseMLModel_Api/WeatherStationWRSenseMLModel_Api.csproj"
     },
     "WeatherStationWSenseMLModel_Api/1.0.0": {
       "type": "project",
@@ -2108,7 +2108,7 @@
       "PersonCounterMLModel_Api >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.4.0",
       "WaterLevelMLModel_Api >= 1.0.0",
-      "WeatherStationMLModel >= 1.0.0",
+      "WeatherStationWRSenseMLModel_Api >= 1.0.0",
       "WeatherStationWSenseMLModel_Api >= 1.0.0"
     ]
   },
@@ -2143,8 +2143,8 @@
             "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WaterLevelMLModel_Api\\WaterLevelMLModel_Api.csproj": {
               "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WaterLevelMLModel_Api\\WaterLevelMLModel_Api.csproj"
             },
-            "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationMLModel\\WeatherStationMLModel.csproj": {
-              "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationMLModel\\WeatherStationMLModel.csproj"
+            "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWRSenseMLModel_Api\\WeatherStationWRSenseMLModel_Api.csproj": {
+              "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWRSenseMLModel_Api\\WeatherStationWRSenseMLModel_Api.csproj"
             },
             "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWSenseMLModel_Api\\WeatherStationWSenseMLModel_Api.csproj": {
               "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWSenseMLModel_Api\\WeatherStationWSenseMLModel_Api.csproj"

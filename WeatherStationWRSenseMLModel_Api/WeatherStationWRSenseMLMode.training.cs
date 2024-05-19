@@ -10,9 +10,9 @@ using Microsoft.ML.Trainers.FastTree;
 using Microsoft.ML.Trainers;
 using Microsoft.ML;
 
-namespace WeatherStationMLModel
+namespace WeatherStationWRSenseMLModel_Api
 {
-    public partial class MLModel
+    public partial class WeatherStationWRSenseMLMode
     {
         public const string RetrainFilePath =  @"C:\Users\jakub\Skrivebord\semester 7\projectCode\project\Bachelor-Project\Backend\Files\CVS\cleaned_wrsense.csv";
         public const char RetrainSeparatorChar = ',';

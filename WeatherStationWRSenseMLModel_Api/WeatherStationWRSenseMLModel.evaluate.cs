@@ -6,9 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace WeatherStationMLModel
+namespace WeatherStationWRSenseMLModel_Api
 {
-    public partial class MLModel
+    public partial class WeatherStationWRSenseMLMode
     {
         /// <summary>
         /// Permutation feature importance (PFI) is a technique to determine the importance 

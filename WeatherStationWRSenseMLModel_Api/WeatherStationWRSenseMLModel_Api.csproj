@@ -11,7 +11,7 @@
     <PackageReference Include="Microsoft.ML.FastTree" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup Label="MLModel">
-    <None Include="MLModel.mlnet">
+    <None Include="WeatherStationWRSenseMLModel.mlnet">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
