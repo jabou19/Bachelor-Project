@@ -38,7 +38,8 @@ namespace PersonCounterMLModel_Api
             [ColumnName(@"seqNumber")]
             public float SeqNumber { get; set; }
 
-            [LoadColumn(5)] [ColumnName(@"time")] public string Time { get; set; }
+            [LoadColumn(5)] [ColumnName(@"time")] 
+            public string Time { get; set; }
 
             [LoadColumn(6)]
             [ColumnName(@"createdAt")]

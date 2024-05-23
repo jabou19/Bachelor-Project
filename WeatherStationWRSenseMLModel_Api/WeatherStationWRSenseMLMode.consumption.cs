@@ -84,7 +84,7 @@ namespace WeatherStationWRSenseMLModel_Api
 
         #endregion
 
-        private static string MLNetModelPath = Path.GetFullPath("MLModel.mlnet");
+        private static string MLNetModelPath = Path.GetFullPath("WeatherStationWRSenseMLModel.mlnet");
 
         public static readonly Lazy<PredictionEngine<ModelInput, ModelOutput>> PredictEngine = new Lazy<PredictionEngine<ModelInput, ModelOutput>>(() => CreatePredictEngine(), true);
 
