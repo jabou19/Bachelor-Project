@@ -27,7 +27,7 @@ class Weather_WRSenseApp extends Component {
                     actualValue={actualValue}
                     rSquaredUrl="http://localhost:5000/evaluate-wrsensor"
                     predictUrl="http://localhost:5000/predict-wrsensor"
-                    differenceThreshold={0.5} // Set the threshold for Weather_WRSense prediction
+                    differenceThreshold={0.3} // Set the threshold for Weather_WRSense prediction
                     storageKey="Weather_WRSenseApp" // Key for session storage
                 />
             </div>

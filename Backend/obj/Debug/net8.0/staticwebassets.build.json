@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "X2IuUKx4b+MGSDUHgpHV5dbg9RB6MU9hVVROIa7o1Mg=",
+  "Hash": "bhs+2CFGJlg/DZ3kfEbI+BTaUycDaxDWMmoUBYrGfKc=",
   "Source": "Backend",
   "BasePath": "_content/Backend",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\PersonCounterMLModel_Api\\PersonCounterMLModel_Api.csproj",
+      "Identity": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\PersonCounterMLModel_Api\\PersonCounterMLModel_Api.csproj",
       "Version": 2,
       "Source": "PersonCounterMLModel_Api",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
@@ -18,7 +18,7 @@
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
     },
     {
-      "Identity": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WaterLevelMLModel_Api\\WaterLevelMLModel_Api.csproj",
+      "Identity": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WaterLevelMLModel_Api\\WaterLevelMLModel_Api.csproj",
       "Version": 2,
       "Source": "WaterLevelMLModel_Api",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
@@ -29,7 +29,7 @@
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
     },
     {
-      "Identity": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWRSenseMLModel_Api\\WeatherStationWRSenseMLModel_Api.csproj",
+      "Identity": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WeatherStationWRSenseMLModel_Api\\WeatherStationWRSenseMLModel_Api.csproj",
       "Version": 2,
       "Source": "WeatherStationWRSenseMLModel_Api",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
@@ -40,7 +40,7 @@
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
     },
     {
-      "Identity": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWSenseMLModel_Api\\WeatherStationWSenseMLModel_Api.csproj",
+      "Identity": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WeatherStationWSenseMLModel_Api\\WeatherStationWSenseMLModel_Api.csproj",
       "Version": 2,
       "Source": "WeatherStationWSenseMLModel_Api",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",

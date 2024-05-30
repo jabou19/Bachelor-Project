@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonCounterMLModel_Api", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WaterLevelMLModel_Api", "WaterLevelMLModel_Api\WaterLevelMLModel_Api.csproj", "{64888A8F-2F4B-4BD1-997D-2ECC26E44F5F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend.Tests", "Backend.Tests\Backend.Tests.csproj", "{A9D3F4B6-9D9C-466B-8B19-409B901F8862}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{64888A8F-2F4B-4BD1-997D-2ECC26E44F5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64888A8F-2F4B-4BD1-997D-2ECC26E44F5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64888A8F-2F4B-4BD1-997D-2ECC26E44F5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9D3F4B6-9D9C-466B-8B19-409B901F8862}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9D3F4B6-9D9C-466B-8B19-409B901F8862}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9D3F4B6-9D9C-466B-8B19-409B901F8862}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9D3F4B6-9D9C-466B-8B19-409B901F8862}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

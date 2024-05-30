@@ -442,6 +442,34 @@
           }
         }
       },
+      "NUnit/4.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/nunit.framework.dll": {
+            "related": ".legacy.xml;.xml"
+          },
+          "lib/net6.0/nunit.framework.legacy.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/nunit.framework.dll": {
+            "related": ".legacy.xml;.xml"
+          },
+          "lib/net6.0/nunit.framework.legacy.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/NUnit.props": {}
+        }
+      },
+      "NUnit3TestAdapter/4.5.0": {
+        "type": "package",
+        "build": {
+          "build/netcoreapp3.1/NUnit3TestAdapter.props": {}
+        }
+      },
       "Swashbuckle.AspNetCore/6.4.0": {
         "type": "package",
         "dependencies": {
@@ -676,6 +704,108 @@
           "ref/netstandard1.3/System.Threading.Tasks.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "xunit/2.8.1": {
+        "type": "package",
+        "dependencies": {
+          "xunit.analyzers": "1.14.0",
+          "xunit.assert": "2.8.1",
+          "xunit.core": "[2.8.1]"
+        }
+      },
+      "xunit.abstractions/2.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/xunit.abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/xunit.abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "xunit.analyzers/1.14.0": {
+        "type": "package"
+      },
+      "xunit.assert/2.8.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/xunit.assert.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/xunit.assert.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "xunit.core/2.8.1": {
+        "type": "package",
+        "dependencies": {
+          "xunit.extensibility.core": "[2.8.1]",
+          "xunit.extensibility.execution": "[2.8.1]"
+        },
+        "build": {
+          "build/xunit.core.props": {},
+          "build/xunit.core.targets": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/xunit.core.props": {},
+          "buildMultiTargeting/xunit.core.targets": {}
+        }
+      },
+      "xunit.extensibility.core/2.8.1": {
+        "type": "package",
+        "dependencies": {
+          "xunit.abstractions": "2.0.3"
+        },
+        "compile": {
+          "lib/netstandard1.1/xunit.core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard1.1/xunit.core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "xunit.extensibility.execution/2.8.1": {
+        "type": "package",
+        "dependencies": {
+          "xunit.extensibility.core": "[2.8.1]"
+        },
+        "compile": {
+          "lib/netstandard1.1/xunit.execution.dotnet.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard1.1/xunit.execution.dotnet.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "xunit.runner.console/2.8.1": {
+        "type": "package",
+        "build": {
+          "build/xunit.runner.console.props": {}
+        }
+      },
+      "xunit.runner.visualstudio/2.8.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/_._": {}
+        },
+        "runtime": {
+          "lib/net6.0/_._": {}
+        },
+        "build": {
+          "build/net6.0/xunit.runner.visualstudio.props": {}
         }
       },
       "PersonCounterMLModel_Api/1.0.0": {
@@ -1340,6 +1470,59 @@
         "newtonsoft.json.13.0.3.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
+      ]
+    },
+    "NUnit/4.1.0": {
+      "sha512": "MT/DpAhjtiytzhTgTqIhBuWx4y26PKfDepYUHUM+5uv4TsryHC2jwFo5e6NhWkApCm/G6kZ80dRjdJFuAxq3rg==",
+      "type": "package",
+      "path": "nunit/4.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CHANGES.md",
+        "LICENSE.txt",
+        "NOTICES.md",
+        "README.md",
+        "THIRD_PARTY_NOTICES.md",
+        "build/NUnit.props",
+        "icon.png",
+        "lib/net462/nunit.framework.dll",
+        "lib/net462/nunit.framework.legacy.dll",
+        "lib/net462/nunit.framework.legacy.xml",
+        "lib/net462/nunit.framework.xml",
+        "lib/net6.0/nunit.framework.dll",
+        "lib/net6.0/nunit.framework.legacy.dll",
+        "lib/net6.0/nunit.framework.legacy.xml",
+        "lib/net6.0/nunit.framework.xml",
+        "nunit.4.1.0.nupkg.sha512",
+        "nunit.nuspec"
+      ]
+    },
+    "NUnit3TestAdapter/4.5.0": {
+      "sha512": "s8JpqTe9bI2f49Pfr3dFRfoVSuFQyraTj68c3XXjIS/MRGvvkLnrg6RLqnTjdShX+AdFUCCU/4Xex58AdUfs6A==",
+      "type": "package",
+      "path": "nunit3testadapter/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/net462/NUnit3.TestAdapter.dll",
+        "build/net462/NUnit3.TestAdapter.pdb",
+        "build/net462/NUnit3TestAdapter.props",
+        "build/net462/nunit.engine.api.dll",
+        "build/net462/nunit.engine.core.dll",
+        "build/net462/nunit.engine.dll",
+        "build/net462/testcentric.engine.metadata.dll",
+        "build/netcoreapp3.1/NUnit3.TestAdapter.dll",
+        "build/netcoreapp3.1/NUnit3.TestAdapter.pdb",
+        "build/netcoreapp3.1/NUnit3TestAdapter.props",
+        "build/netcoreapp3.1/nunit.engine.api.dll",
+        "build/netcoreapp3.1/nunit.engine.core.dll",
+        "build/netcoreapp3.1/nunit.engine.dll",
+        "build/netcoreapp3.1/testcentric.engine.metadata.dll",
+        "docs/README.md",
+        "nunit3testadapter.4.5.0.nupkg.sha512",
+        "nunit3testadapter.nuspec",
+        "nunit_256.png"
       ]
     },
     "Swashbuckle.AspNetCore/6.4.0": {
@@ -2076,6 +2259,258 @@
         "system.threading.tasks.nuspec"
       ]
     },
+    "xunit/2.8.1": {
+      "sha512": "MLBz2NQp3rtSIoJdjj3DBEr/EeOFlQYF3oCCljat3DY9GQ7yYmtjIAv8Zyfm5BcwYso5sjvIe5scuHaJPVCGIQ==",
+      "type": "package",
+      "path": "xunit/2.8.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "_content/README.md",
+        "_content/logo-128-transparent.png",
+        "xunit.2.8.1.nupkg.sha512",
+        "xunit.nuspec"
+      ]
+    },
+    "xunit.abstractions/2.0.3": {
+      "sha512": "pot1I4YOxlWjIb5jmwvvQNbTrZ3lJQ+jUGkGjWE3hEFM0l5gOnBWS+H3qsex68s5cO52g+44vpGzhAt+42vwKg==",
+      "type": "package",
+      "path": "xunit.abstractions/2.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/xunit.abstractions.dll",
+        "lib/net35/xunit.abstractions.xml",
+        "lib/netstandard1.0/xunit.abstractions.dll",
+        "lib/netstandard1.0/xunit.abstractions.xml",
+        "lib/netstandard2.0/xunit.abstractions.dll",
+        "lib/netstandard2.0/xunit.abstractions.xml",
+        "xunit.abstractions.2.0.3.nupkg.sha512",
+        "xunit.abstractions.nuspec"
+      ]
+    },
+    "xunit.analyzers/1.14.0": {
+      "sha512": "KcFBmV2150xZHPUebV3YLR5gGl8R4wLuPOoxMiwCf1L4bL8ls0dcwtGFzr6NvQRgg6dWgSqbE52I6SYyeB0VnQ==",
+      "type": "package",
+      "path": "xunit.analyzers/1.14.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "_content/README.md",
+        "_content/logo-128-transparent.png",
+        "analyzers/dotnet/cs/xunit.analyzers.dll",
+        "analyzers/dotnet/cs/xunit.analyzers.fixes.dll",
+        "analyzers/dotnet/roslyn3.11/cs/xunit.analyzers.dll",
+        "analyzers/dotnet/roslyn3.11/cs/xunit.analyzers.fixes.dll",
+        "analyzers/dotnet/roslyn4.4/cs/xunit.analyzers.dll",
+        "analyzers/dotnet/roslyn4.4/cs/xunit.analyzers.fixes.dll",
+        "analyzers/dotnet/roslyn4.6/cs/xunit.analyzers.dll",
+        "analyzers/dotnet/roslyn4.6/cs/xunit.analyzers.fixes.dll",
+        "analyzers/dotnet/roslyn4.8/cs/xunit.analyzers.dll",
+        "analyzers/dotnet/roslyn4.8/cs/xunit.analyzers.fixes.dll",
+        "tools/install.ps1",
+        "tools/uninstall.ps1",
+        "xunit.analyzers.1.14.0.nupkg.sha512",
+        "xunit.analyzers.nuspec"
+      ]
+    },
+    "xunit.assert/2.8.1": {
+      "sha512": "DDM18ur+PeNFhQ4w/vO+uvCUy8hA3OS5+AMf/CFov9Wco7Le49zzj0hovRWwa8f/3vaUfjL5r+IkPvqEHu2IIg==",
+      "type": "package",
+      "path": "xunit.assert/2.8.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "_content/README.md",
+        "_content/logo-128-transparent.png",
+        "lib/net6.0/xunit.assert.dll",
+        "lib/net6.0/xunit.assert.xml",
+        "lib/netstandard1.1/xunit.assert.dll",
+        "lib/netstandard1.1/xunit.assert.xml",
+        "xunit.assert.2.8.1.nupkg.sha512",
+        "xunit.assert.nuspec"
+      ]
+    },
+    "xunit.core/2.8.1": {
+      "sha512": "Ng4Q/DOwotESPl5CufcdqgP6O2KDpdEcIvNfA3upzfCiBrkj5WsmLhf/XUsCVolzvHA7b1WUlyeTo7j1ulG4gQ==",
+      "type": "package",
+      "path": "xunit.core/2.8.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "_content/README.md",
+        "_content/logo-128-transparent.png",
+        "build/xunit.core.props",
+        "build/xunit.core.targets",
+        "buildMultiTargeting/xunit.core.props",
+        "buildMultiTargeting/xunit.core.targets",
+        "xunit.core.2.8.1.nupkg.sha512",
+        "xunit.core.nuspec"
+      ]
+    },
+    "xunit.extensibility.core/2.8.1": {
+      "sha512": "ilfAsxEhpne9AXXf3W+O65mRgGum94m2xHYm1yeJ1m7eiINM6OOwpaHhoNC/KWEQ2u/WF6/XiEs+Q0TOq7hiGA==",
+      "type": "package",
+      "path": "xunit.extensibility.core/2.8.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "_content/README.md",
+        "_content/logo-128-transparent.png",
+        "lib/net452/xunit.core.dll",
+        "lib/net452/xunit.core.dll.tdnet",
+        "lib/net452/xunit.core.xml",
+        "lib/net452/xunit.runner.tdnet.dll",
+        "lib/net452/xunit.runner.utility.net452.dll",
+        "lib/netstandard1.1/xunit.core.dll",
+        "lib/netstandard1.1/xunit.core.xml",
+        "xunit.extensibility.core.2.8.1.nupkg.sha512",
+        "xunit.extensibility.core.nuspec"
+      ]
+    },
+    "xunit.extensibility.execution/2.8.1": {
+      "sha512": "38UnJW+64Wn8QIabujcNEw0HKvWw2AlYCgU8GNwCCDqyrSuRYb7zwetn7SHoHfbL9e9FAvEiAMXmc2wSUY8sVQ==",
+      "type": "package",
+      "path": "xunit.extensibility.execution/2.8.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "_content/README.md",
+        "_content/logo-128-transparent.png",
+        "lib/net452/xunit.execution.desktop.dll",
+        "lib/net452/xunit.execution.desktop.xml",
+        "lib/netstandard1.1/xunit.execution.dotnet.dll",
+        "lib/netstandard1.1/xunit.execution.dotnet.xml",
+        "xunit.extensibility.execution.2.8.1.nupkg.sha512",
+        "xunit.extensibility.execution.nuspec"
+      ]
+    },
+    "xunit.runner.console/2.8.1": {
+      "sha512": "HxmMv/6wxtGMA+twCKsNiQzMG2VmrVYaLk9R+ShiPlb0qFi1OrNNey8QK4zCBP7VY+aKi71wWZEaRqZkLv1RAQ==",
+      "type": "package",
+      "path": "xunit.runner.console/2.8.1",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "_content/README.md",
+        "_content/logo-128-transparent.png",
+        "build/xunit.runner.console.props",
+        "tools/net452/xunit.abstractions.dll",
+        "tools/net452/xunit.console.exe",
+        "tools/net452/xunit.console.exe.config",
+        "tools/net452/xunit.console.x86.exe",
+        "tools/net452/xunit.console.x86.exe.config",
+        "tools/net452/xunit.runner.reporters.net452.dll",
+        "tools/net452/xunit.runner.utility.net452.dll",
+        "tools/net46/xunit.abstractions.dll",
+        "tools/net46/xunit.console.exe",
+        "tools/net46/xunit.console.exe.config",
+        "tools/net46/xunit.console.x86.exe",
+        "tools/net46/xunit.console.x86.exe.config",
+        "tools/net46/xunit.runner.reporters.net452.dll",
+        "tools/net46/xunit.runner.utility.net452.dll",
+        "tools/net461/xunit.abstractions.dll",
+        "tools/net461/xunit.console.exe",
+        "tools/net461/xunit.console.exe.config",
+        "tools/net461/xunit.console.x86.exe",
+        "tools/net461/xunit.console.x86.exe.config",
+        "tools/net461/xunit.runner.reporters.net452.dll",
+        "tools/net461/xunit.runner.utility.net452.dll",
+        "tools/net462/xunit.abstractions.dll",
+        "tools/net462/xunit.console.exe",
+        "tools/net462/xunit.console.exe.config",
+        "tools/net462/xunit.console.x86.exe",
+        "tools/net462/xunit.console.x86.exe.config",
+        "tools/net462/xunit.runner.reporters.net452.dll",
+        "tools/net462/xunit.runner.utility.net452.dll",
+        "tools/net47/xunit.abstractions.dll",
+        "tools/net47/xunit.console.exe",
+        "tools/net47/xunit.console.exe.config",
+        "tools/net47/xunit.console.x86.exe",
+        "tools/net47/xunit.console.x86.exe.config",
+        "tools/net47/xunit.runner.reporters.net452.dll",
+        "tools/net47/xunit.runner.utility.net452.dll",
+        "tools/net471/xunit.abstractions.dll",
+        "tools/net471/xunit.console.exe",
+        "tools/net471/xunit.console.exe.config",
+        "tools/net471/xunit.console.x86.exe",
+        "tools/net471/xunit.console.x86.exe.config",
+        "tools/net471/xunit.runner.reporters.net452.dll",
+        "tools/net471/xunit.runner.utility.net452.dll",
+        "tools/net472/xunit.abstractions.dll",
+        "tools/net472/xunit.console.exe",
+        "tools/net472/xunit.console.exe.config",
+        "tools/net472/xunit.console.x86.exe",
+        "tools/net472/xunit.console.x86.exe.config",
+        "tools/net472/xunit.runner.reporters.net452.dll",
+        "tools/net472/xunit.runner.utility.net452.dll",
+        "tools/net48/xunit.abstractions.dll",
+        "tools/net48/xunit.console.exe",
+        "tools/net48/xunit.console.exe.config",
+        "tools/net48/xunit.console.x86.exe",
+        "tools/net48/xunit.console.x86.exe.config",
+        "tools/net48/xunit.runner.reporters.net452.dll",
+        "tools/net48/xunit.runner.utility.net452.dll",
+        "tools/net481/xunit.abstractions.dll",
+        "tools/net481/xunit.console.exe",
+        "tools/net481/xunit.console.exe.config",
+        "tools/net481/xunit.console.x86.exe",
+        "tools/net481/xunit.console.x86.exe.config",
+        "tools/net481/xunit.runner.reporters.net452.dll",
+        "tools/net481/xunit.runner.utility.net452.dll",
+        "tools/net6.0/xunit.abstractions.dll",
+        "tools/net6.0/xunit.console.deps.json",
+        "tools/net6.0/xunit.console.dll",
+        "tools/net6.0/xunit.console.dll.config",
+        "tools/net6.0/xunit.console.exe",
+        "tools/net6.0/xunit.console.runtimeconfig.json",
+        "tools/net6.0/xunit.runner.reporters.netcoreapp10.dll",
+        "tools/net6.0/xunit.runner.utility.netcoreapp10.dll",
+        "tools/netcoreapp1.0/xunit.abstractions.dll",
+        "tools/netcoreapp1.0/xunit.console.deps.json",
+        "tools/netcoreapp1.0/xunit.console.dll",
+        "tools/netcoreapp1.0/xunit.console.dll.config",
+        "tools/netcoreapp1.0/xunit.console.runtimeconfig.json",
+        "tools/netcoreapp1.0/xunit.runner.reporters.netcoreapp10.dll",
+        "tools/netcoreapp1.0/xunit.runner.utility.netcoreapp10.dll",
+        "tools/netcoreapp2.0/xunit.abstractions.dll",
+        "tools/netcoreapp2.0/xunit.console.deps.json",
+        "tools/netcoreapp2.0/xunit.console.dll",
+        "tools/netcoreapp2.0/xunit.console.dll.config",
+        "tools/netcoreapp2.0/xunit.console.runtimeconfig.json",
+        "tools/netcoreapp2.0/xunit.runner.reporters.netcoreapp10.dll",
+        "tools/netcoreapp2.0/xunit.runner.utility.netcoreapp10.dll",
+        "xunit.runner.console.2.8.1.nupkg.sha512",
+        "xunit.runner.console.nuspec"
+      ]
+    },
+    "xunit.runner.visualstudio/2.8.1": {
+      "sha512": "qBTK0WAcnw65mymIjVDqWUTdqjMyzjwu9e9SF0oGYfYELgbcteDZ4fQLJaXw8mzkvpAD7YdoexBbg8VYQFkWWA==",
+      "type": "package",
+      "path": "xunit.runner.visualstudio/2.8.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "_content/README.md",
+        "_content/logo-128-transparent.png",
+        "build/net462/xunit.abstractions.dll",
+        "build/net462/xunit.runner.reporters.net452.dll",
+        "build/net462/xunit.runner.utility.net452.dll",
+        "build/net462/xunit.runner.visualstudio.props",
+        "build/net462/xunit.runner.visualstudio.testadapter.dll",
+        "build/net6.0/xunit.abstractions.dll",
+        "build/net6.0/xunit.runner.reporters.netcoreapp10.dll",
+        "build/net6.0/xunit.runner.utility.netcoreapp10.dll",
+        "build/net6.0/xunit.runner.visualstudio.props",
+        "build/net6.0/xunit.runner.visualstudio.testadapter.dll",
+        "lib/net462/_._",
+        "lib/net6.0/_._",
+        "xunit.runner.visualstudio.2.8.1.nupkg.sha512",
+        "xunit.runner.visualstudio.nuspec"
+      ]
+    },
     "PersonCounterMLModel_Api/1.0.0": {
       "type": "project",
       "path": "../PersonCounterMLModel_Api/PersonCounterMLModel_Api.csproj",
@@ -2104,50 +2539,57 @@
       "Microsoft.Extensions.ML >= 1.5.5",
       "Microsoft.ML >= 2.0.0",
       "Microsoft.ML.FastTree >= 2.0.0",
+      "NUnit >= 4.1.0",
+      "NUnit3TestAdapter >= 4.5.0",
       "Newtonsoft.Json >= 13.0.3",
       "PersonCounterMLModel_Api >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.4.0",
       "WaterLevelMLModel_Api >= 1.0.0",
       "WeatherStationWRSenseMLModel_Api >= 1.0.0",
-      "WeatherStationWSenseMLModel_Api >= 1.0.0"
+      "WeatherStationWSenseMLModel_Api >= 1.0.0",
+      "xunit >= 2.8.1",
+      "xunit.runner.console >= 2.8.1",
+      "xunit.runner.visualstudio >= 2.8.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jakub\\.nuget\\packages\\": {}
+    "C:\\Users\\abdul\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\Backend\\Backend.csproj",
+      "projectUniqueName": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\Backend\\Backend.csproj",
       "projectName": "Backend",
-      "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\Backend\\Backend.csproj",
-      "packagesPath": "C:\\Users\\jakub\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\Backend\\obj\\",
+      "projectPath": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\Backend\\Backend.csproj",
+      "packagesPath": "C:\\Users\\abdul\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\Backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\jakub\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\abdul\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\PersonCounterMLModel_Api\\PersonCounterMLModel_Api.csproj": {
-              "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\PersonCounterMLModel_Api\\PersonCounterMLModel_Api.csproj"
+            "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\PersonCounterMLModel_Api\\PersonCounterMLModel_Api.csproj": {
+              "projectPath": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\PersonCounterMLModel_Api\\PersonCounterMLModel_Api.csproj"
             },
-            "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WaterLevelMLModel_Api\\WaterLevelMLModel_Api.csproj": {
-              "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WaterLevelMLModel_Api\\WaterLevelMLModel_Api.csproj"
+            "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WaterLevelMLModel_Api\\WaterLevelMLModel_Api.csproj": {
+              "projectPath": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WaterLevelMLModel_Api\\WaterLevelMLModel_Api.csproj"
             },
-            "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWRSenseMLModel_Api\\WeatherStationWRSenseMLModel_Api.csproj": {
-              "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWRSenseMLModel_Api\\WeatherStationWRSenseMLModel_Api.csproj"
+            "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WeatherStationWRSenseMLModel_Api\\WeatherStationWRSenseMLModel_Api.csproj": {
+              "projectPath": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WeatherStationWRSenseMLModel_Api\\WeatherStationWRSenseMLModel_Api.csproj"
             },
-            "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWSenseMLModel_Api\\WeatherStationWSenseMLModel_Api.csproj": {
-              "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWSenseMLModel_Api\\WeatherStationWSenseMLModel_Api.csproj"
+            "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WeatherStationWSenseMLModel_Api\\WeatherStationWSenseMLModel_Api.csproj": {
+              "projectPath": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WeatherStationWSenseMLModel_Api\\WeatherStationWSenseMLModel_Api.csproj"
             }
           }
         }
@@ -2156,6 +2598,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -2182,6 +2629,14 @@
             "target": "Package",
             "version": "[2.0.0, )"
           },
+          "NUnit": {
+            "target": "Package",
+            "version": "[4.1.0, )"
+          },
+          "NUnit3TestAdapter": {
+            "target": "Package",
+            "version": "[4.5.0, )"
+          },
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
@@ -2189,6 +2644,22 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.4.0, )"
+          },
+          "xunit": {
+            "target": "Package",
+            "version": "[2.8.1, )"
+          },
+          "xunit.runner.console": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[2.8.1, )"
+          },
+          "xunit.runner.visualstudio": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[2.8.1, )"
           }
         },
         "imports": [
@@ -2210,7 +2681,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

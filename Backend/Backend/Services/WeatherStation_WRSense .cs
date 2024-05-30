@@ -19,7 +19,7 @@ public class WeatherStation_WRSense:Devices
         
         ReadingData();
     }
-  
+    
     public void ReadingData()
     {
         var fullFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, FilePath);
@@ -28,25 +28,24 @@ public class WeatherStation_WRSense:Devices
             throw new FileNotFoundException($"The JSON file was not found at path: {FilePath}");
         }
 
-        // Read the JSON file content
         string jsonContent = File.ReadAllText(fullFilePath);
-
-        // Parse the JSON content as a JArray
         JArray jsonArray = JArray.Parse(jsonContent);
-        //pick an entry from the JSON file sequentially from beginning to end
+
         if (jsonArray.Count == 0)
         {
             throw new Exception("JSON array is empty.");
         }
 
         JObject item = jsonArray[CurrentIndex] as JObject;
-        RoadTemperature = item["roadTemperature"]?.Value<double>() ?? RoadTemperature;
-        AirTemperature = item["airTemperature"]?.Value<double>() ?? AirTemperature;
-        AirHumidity = item["airHumidity"]?.Value<double>() ?? AirHumidity;
-         Precipitation= item["precipitation"]?.Value<double>() ?? Precipitation;
-        BatteryLevel = item["batteryLevel"]?.Value<double>() ?? BatteryLevel;
-        Time = item["time"]?.Value<DateTime>() ?? DateTime.MinValue;
-        CreatedAt = item["createdAt"]?.Value<DateTime>() ?? DateTime.MinValue;
+
+        RoadTemperature = item["roadTemperature"]?.Type != JTokenType.Null ? item["roadTemperature"].Value<double>() : 0;
+        AirTemperature = item["airTemperature"]?.Type != JTokenType.Null ? item["airTemperature"].Value<double>() : 0;
+        AirHumidity = item["airHumidity"]?.Type != JTokenType.Null ? item["airHumidity"].Value<double>() : 0;
+        Precipitation = item["precipitation"]?.Type != JTokenType.Null ? item["precipitation"].Value<double>() : 0;
+        BatteryLevel = item["batteryLevel"]?.Type != JTokenType.Null ? item["batteryLevel"].Value<double>() : null;
+        Time = item["time"]?.Type != JTokenType.Null ? item["time"].Value<DateTime>() : null;
+        CreatedAt = item["createdAt"]?.Type != JTokenType.Null ? item["createdAt"].Value<DateTime>() : null;
+
         CurrentIndex = (CurrentIndex + 1) % jsonArray.Count; // Increment and wrap the index
     }
 }

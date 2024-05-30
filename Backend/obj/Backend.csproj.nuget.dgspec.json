@@ -1,42 +1,44 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\Backend\\Backend.csproj": {}
+    "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\Backend\\Backend.csproj": {
+    "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\Backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\Backend\\Backend.csproj",
-        "packagesPath": "C:\\Users\\jakub\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\Backend\\obj\\",
+        "projectPath": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\Backend\\Backend.csproj",
+        "packagesPath": "C:\\Users\\abdul\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jakub\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\abdul\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\PersonCounterMLModel_Api\\PersonCounterMLModel_Api.csproj": {
-                "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\PersonCounterMLModel_Api\\PersonCounterMLModel_Api.csproj"
+              "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\PersonCounterMLModel_Api\\PersonCounterMLModel_Api.csproj": {
+                "projectPath": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\PersonCounterMLModel_Api\\PersonCounterMLModel_Api.csproj"
               },
-              "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WaterLevelMLModel_Api\\WaterLevelMLModel_Api.csproj": {
-                "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WaterLevelMLModel_Api\\WaterLevelMLModel_Api.csproj"
+              "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WaterLevelMLModel_Api\\WaterLevelMLModel_Api.csproj": {
+                "projectPath": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WaterLevelMLModel_Api\\WaterLevelMLModel_Api.csproj"
               },
-              "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWRSenseMLModel_Api\\WeatherStationWRSenseMLModel_Api.csproj": {
-                "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWRSenseMLModel_Api\\WeatherStationWRSenseMLModel_Api.csproj"
+              "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WeatherStationWRSenseMLModel_Api\\WeatherStationWRSenseMLModel_Api.csproj": {
+                "projectPath": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WeatherStationWRSenseMLModel_Api\\WeatherStationWRSenseMLModel_Api.csproj"
               },
-              "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWSenseMLModel_Api\\WeatherStationWSenseMLModel_Api.csproj": {
-                "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWSenseMLModel_Api\\WeatherStationWSenseMLModel_Api.csproj"
+              "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WeatherStationWSenseMLModel_Api\\WeatherStationWSenseMLModel_Api.csproj": {
+                "projectPath": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WeatherStationWSenseMLModel_Api\\WeatherStationWSenseMLModel_Api.csproj"
               }
             }
           }
@@ -45,6 +47,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -71,6 +78,14 @@
               "target": "Package",
               "version": "[2.0.0, )"
             },
+            "NUnit": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
@@ -78,6 +93,22 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.8.1, )"
+            },
+            "xunit.runner.console": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.8.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.8.1, )"
             }
           },
           "imports": [
@@ -99,26 +130,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\PersonCounterMLModel_Api\\PersonCounterMLModel_Api.csproj": {
+    "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\PersonCounterMLModel_Api\\PersonCounterMLModel_Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\PersonCounterMLModel_Api\\PersonCounterMLModel_Api.csproj",
+        "projectUniqueName": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\PersonCounterMLModel_Api\\PersonCounterMLModel_Api.csproj",
         "projectName": "PersonCounterMLModel_Api",
-        "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\PersonCounterMLModel_Api\\PersonCounterMLModel_Api.csproj",
-        "packagesPath": "C:\\Users\\jakub\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\PersonCounterMLModel_Api\\obj\\",
+        "projectPath": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\PersonCounterMLModel_Api\\PersonCounterMLModel_Api.csproj",
+        "packagesPath": "C:\\Users\\abdul\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\PersonCounterMLModel_Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jakub\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\abdul\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -131,6 +164,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -165,6 +203,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.29, 6.0.29]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -173,26 +229,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WaterLevelMLModel_Api\\WaterLevelMLModel_Api.csproj": {
+    "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WaterLevelMLModel_Api\\WaterLevelMLModel_Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WaterLevelMLModel_Api\\WaterLevelMLModel_Api.csproj",
+        "projectUniqueName": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WaterLevelMLModel_Api\\WaterLevelMLModel_Api.csproj",
         "projectName": "WaterLevelMLModel_Api",
-        "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WaterLevelMLModel_Api\\WaterLevelMLModel_Api.csproj",
-        "packagesPath": "C:\\Users\\jakub\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WaterLevelMLModel_Api\\obj\\",
+        "projectPath": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WaterLevelMLModel_Api\\WaterLevelMLModel_Api.csproj",
+        "packagesPath": "C:\\Users\\abdul\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WaterLevelMLModel_Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jakub\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\abdul\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -205,6 +263,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -239,6 +302,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.29, 6.0.29]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -247,26 +328,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWRSenseMLModel_Api\\WeatherStationWRSenseMLModel_Api.csproj": {
+    "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WeatherStationWRSenseMLModel_Api\\WeatherStationWRSenseMLModel_Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWRSenseMLModel_Api\\WeatherStationWRSenseMLModel_Api.csproj",
+        "projectUniqueName": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WeatherStationWRSenseMLModel_Api\\WeatherStationWRSenseMLModel_Api.csproj",
         "projectName": "WeatherStationWRSenseMLModel_Api",
-        "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWRSenseMLModel_Api\\WeatherStationWRSenseMLModel_Api.csproj",
-        "packagesPath": "C:\\Users\\jakub\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWRSenseMLModel_Api\\obj\\",
+        "projectPath": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WeatherStationWRSenseMLModel_Api\\WeatherStationWRSenseMLModel_Api.csproj",
+        "packagesPath": "C:\\Users\\abdul\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WeatherStationWRSenseMLModel_Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jakub\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\abdul\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -279,6 +362,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -313,6 +401,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.29, 6.0.29]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -321,26 +427,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWSenseMLModel_Api\\WeatherStationWSenseMLModel_Api.csproj": {
+    "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WeatherStationWSenseMLModel_Api\\WeatherStationWSenseMLModel_Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWSenseMLModel_Api\\WeatherStationWSenseMLModel_Api.csproj",
+        "projectUniqueName": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WeatherStationWSenseMLModel_Api\\WeatherStationWSenseMLModel_Api.csproj",
         "projectName": "WeatherStationWSenseMLModel_Api",
-        "projectPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWSenseMLModel_Api\\WeatherStationWSenseMLModel_Api.csproj",
-        "packagesPath": "C:\\Users\\jakub\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jakub\\Skrivebord\\semester 7\\projectCode\\project\\Bachelor-Project\\WeatherStationWSenseMLModel_Api\\obj\\",
+        "projectPath": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WeatherStationWSenseMLModel_Api\\WeatherStationWSenseMLModel_Api.csproj",
+        "packagesPath": "C:\\Users\\abdul\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\abdul\\OneDrive\\Desktop\\Code Bachelor project\\latestBachelorCode\\Bachelor-Project\\WeatherStationWSenseMLModel_Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jakub\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\abdul\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -353,6 +461,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -387,6 +500,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.29, 6.0.29]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -395,7 +526,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     }

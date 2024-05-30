@@ -1,5 +1,4 @@
 ﻿
-
 using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
@@ -39,23 +38,22 @@ public class WeatherStation_WSense : Devices
             throw new Exception("JSON array is empty.");
         }
 
-        // Validate each object until a valid one is found or the array is exhausted
         while (CurrentIndex < jsonArray.Count)
         {
             JObject item = jsonArray[CurrentIndex] as JObject;
             if (IsObjectValid(item))
-            {   RoadTemperature = item["roadTemperature"].Value<double>();
-                AirTemperature = item["airTemperature"].Value<double>();
-                AirHumidity = item["airHumidity"].Value<double>();
-                BatteryLevel = item["batteryLevel"].Value<double>();
-                Time = item["time"].Value<DateTime>();
-                CreatedAt = item["createdAt"].Value<DateTime>();
-                break;  // Exit after processing a valid item
+            {
+                RoadTemperature = item["roadTemperature"]?.Value<double?>() ?? default;
+                AirTemperature = item["airTemperature"]?.Value<double?>() ?? default;
+                AirHumidity = item["airHumidity"]?.Value<double?>() ?? default;
+                BatteryLevel = item["batteryLevel"]?.Value<double?>();
+                Time = item["time"]?.Value<DateTime?>();
+                CreatedAt = item["createdAt"]?.Value<DateTime?>();
+                break;
             }
             CurrentIndex++;
         }
 
-        // Increment for next call or wrap around
         CurrentIndex = (CurrentIndex + 1) % jsonArray.Count;
     }
 
