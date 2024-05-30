@@ -16,10 +16,8 @@ public class WeatherStation_WRSense:Devices
 
     public WeatherStation_WRSense()
     {
-        
         ReadingData();
     }
-  
     public void ReadingData()
     {
         var fullFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, FilePath);
@@ -27,7 +25,6 @@ public class WeatherStation_WRSense:Devices
         {
             throw new FileNotFoundException($"The JSON file was not found at path: {FilePath}");
         }
-
         // Read the JSON file content
         string jsonContent = File.ReadAllText(fullFilePath);
 
@@ -38,7 +35,6 @@ public class WeatherStation_WRSense:Devices
         {
             throw new Exception("JSON array is empty.");
         }
-
         JObject item = jsonArray[CurrentIndex] as JObject;
         RoadTemperature = item["roadTemperature"]?.Value<double>() ?? RoadTemperature;
         AirTemperature = item["airTemperature"]?.Value<double>() ?? AirTemperature;
