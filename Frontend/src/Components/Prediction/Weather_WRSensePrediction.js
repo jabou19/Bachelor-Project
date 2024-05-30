@@ -8,15 +8,12 @@ class Weather_WRSensePrediction extends BaseSensorComponent {
         const { latestData, prediction, temperatureDifference, result, rSquared, correctCount, incorrectCount, totalPredictions } = this.state;
         const { actualValue } = this.props;
         const threshold = this.props.differenceThreshold;
-
         const resultStyle = {
             fontWeight: 'bold',
             color: result === 'Correct' ? 'green' : 'red'
         };
-
         const correctPercentage = this.getCorrectPercentage();
         const incorrectPercentage = this.getIncorrectPercentage();
-
         return (
             <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'flex-start', padding: 20 }}>
                 <div>

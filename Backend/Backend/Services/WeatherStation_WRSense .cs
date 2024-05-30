@@ -16,10 +16,9 @@ public class WeatherStation_WRSense:Devices
 
     public WeatherStation_WRSense()
     {
-        
         ReadingData();
     }
-    
+
     public void ReadingData()
     {
         var fullFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, FilePath);
@@ -35,7 +34,6 @@ public class WeatherStation_WRSense:Devices
         {
             throw new Exception("JSON array is empty.");
         }
-
         JObject item = jsonArray[CurrentIndex] as JObject;
 
         RoadTemperature = item["roadTemperature"]?.Type != JTokenType.Null ? item["roadTemperature"].Value<double>() : 0;

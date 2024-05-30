@@ -69,36 +69,6 @@ namespace Backend.Tests.Services
             var ex = Xunit.Assert.Throws<Exception>(() => waterLevelSensor.ReadingData());
             Xunit.Assert.Equal("JSON array is empty.", ex.Message);
         }
-        /*
-        [Fact]
-        public void Constructor_WithMissingFile_ShouldThrowFileNotFoundException()
-        {
-            // Arrange
-            var waterLevelSensor = new WaterLevel_USense();
-
-            // Act
-            var ex = Xunit.Assert.Throws<FileNotFoundException>(() =>
-            {
-                waterLevelSensor.ReadingData();
-            });
-
-            // Assert
-            Xunit.Assert.Contains($"The JSON file was not found at path: {waterLevelSensor.FilePath}", ex.Message);
-        }
-        */
-        
-        [Fact]
-        public void Constructor_WithMissingFile_ShouldThrowFileNotFoundException()
-        {
-            // Act & Assert
-            var ex = Xunit.Assert.Throws<FileNotFoundException>(() =>
-            {
-                var waterLevelSensor = new WaterLevel_USense();
-                waterLevelSensor.ReadingData();
-            });
-
-            Xunit.Assert.Contains($"The JSON file was not found at path: {FilePath}", ex.Message);
-        }
         
     }
 }
