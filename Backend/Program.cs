@@ -8,7 +8,6 @@ using WaterLevelMLModel_Api;
 using WeatherStationWRSenseMLModel_Api;
 using WeatherStationWSenseMLModel_Api;
 
-
 var builder = WebApplication.CreateBuilder(args);
 // Add CORS policy
 builder.Services.AddCors(options =>

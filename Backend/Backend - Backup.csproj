@@ -14,17 +14,12 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Backend\" />
+    <Folder Include="../Backend/Backend - Backup.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WeatherStationMLModel\WeatherStationMLModel.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Remove="Files\HistoricalData_JSONFiles\WaterLevel\cleaned_water-level.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="WaterlevelMLModel.mlnet">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <ProjectReference Include="../WeatherStationWRSenseMLModel_Api/WeatherStationWRSenseMLModel_Api.csproj" />
+    <ProjectReference Include="../WeatherStationWSenseMLModel_Api/WeatherStationWSenseMLModel_Api.csproj" />
+    <ProjectReference Include="../WaterLevelMLModel_Api/WaterLevelMLModel_Api.csproj" />
+    <ProjectReference Include="../PersonCounterMLModel_Api/PersonCounterMLModel_Api.csproj" />
   </ItemGroup>
 </Project>

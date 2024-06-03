@@ -37,8 +37,8 @@ namespace Backend.Backend.Services
             JObject item = jsonArray[CurrentIndex] as JObject;
 
             // Handle nullable double values
-            Distance = item["distance"]?.Value<double?>() ?? throw new InvalidOperationException("Distance is null in JSON.");
-            WaterLevel = item["waterLevel"]?.Value<double?>() ?? throw new InvalidOperationException("WaterLevel is null in JSON.");
+            Distance = item["distance"]?.Value<double?>() ?? default;
+            WaterLevel = item["waterLevel"]?.Value<double?>() ?? default;
 
             // Handle nullable properties
             BatteryLevel = item["batteryLevel"]?.Value<double?>();
