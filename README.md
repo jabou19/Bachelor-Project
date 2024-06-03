@@ -42,4 +42,4 @@ Ensure that Rider has the correct run configuration for your backend project:
 
 Go to Run > Edit Configurations.
 
-[Run/Debug Configuration](./Backend/Files/configuration%20.png)
+[How to run Configuration](./Backend/Files/configuration%20.png)
