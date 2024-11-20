@@ -5,8 +5,9 @@
 ## Klimator IoT device model description for ba-project 2024.
 [View PDF](./Backend/Files/PDF%20files/Klimator%20IoT%20device%20model%20description%20for%20ba-project%202024.pdf)
 
-## The report of graduate project 
-[View PDF](./Backend/Files/PDF%20files/)
+## The report of the graduate project 
+[View PDF](./Backend/Files/PDF%20files/Graduated_Project_2024..pdf)
+
 ## Code instruction
 ## Make connection to Hive-mqtt
 [link to Hive-mqtt](https://console.hivemq.cloud/clusters/free/9560e98a5b614e8cb8e275293952641a/web-client )  
